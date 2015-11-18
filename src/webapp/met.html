@@ -1,0 +1,2916 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html class="no-js oldie" lang="en-au"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" class="no-js" lang="en-au">
+<!--<![endif]-->
+<head id="head"><title>
+    Metricon Home Builders - Build Your House With Us! | Metricon
+</title><meta name="description" content="Thinking about building a house? Property investment? Home and land packages? Browse Metricon's home builders solutions now!
+
+" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <meta name="fragment" content="!" />
+    <meta name="p:domain_verify" content="bd3c2c8f5afad4148e18be99a08cc8b0"/>
+    <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+    <link href="/favicon.ico" type="image/x-icon" rel="icon"/>
+    <link href="http://css.metricon.com.au/Custom/css/build/screen.split-blessed1-044b1328.css" media="screen, projection" rel="stylesheet">
+    <link href="http://css.metricon.com.au/Custom/css/build/screen.split-bc9fd0b1.css" media="screen, projection" rel="stylesheet">
+
+    <link href="http://css.metricon.com.au/Custom/css/build/print.min-7ec74f36.css" media="print" rel="stylesheet" />
+
+
+    <script type="text/javascript" src="//fast.fonts.net/jsapi/158b5f97-bdcb-4a4d-9d0e-e1b0294774ac.js"></script>
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="http://js.metricon.com.au/Custom/js/libs/respondjs/respond.min.js"></script>
+    <link href="http://css.metricon.com.au/cross-domain/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+    <link href="/cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+    <script src="/cross-domain/respond.proxy.js"></script>
+    <![endif]-->    <!-- is user logged in? -->
+    <script type="text/javascript">
+        var metriconUser = false;
+        var imgRoot = '/';
+    </script>
+    <script type="text/javascript">
+        var ignoreRegionCookie = false;  // this is ony neeeded for FED team,
+        // so that woe wouldn't see region selecting
+        // popup displayed all the time since
+        // cookie domain is for metricon.com.au.wip.gs
+
+        // region <-> GUID mappings + some extra data, same for all users
+        var statesList = [
+            {
+                "itemGUID": "4b45c3f2-038d-42e6-babb-09d503336d09",
+                "australianState_Name": "Victoria",
+                "australianState_ShorterName": "VIC",
+                "australianState_Regions": [
+                    {
+                        "nodeGUID": "4192cf27-dd23-4241-9612-e15261f08704",
+                        "state_ShortName": "Melbourne",
+                        "state_LongName": "Melbourne",
+                        "state_ShorterName": "MEL",
+                        "state_CenterLatitude": -37.89759,
+                        "state_CenterLongitude": 145.14307,
+                        "state_BoundsRadius": 0.3,
+                        "state_IncludeRegions": "Metropolitan Melbourne & surrounding areas",
+                        "state_PostcodeRanges": [[3000, 3207]],
+                        "state_IsDefault": true
+                    },
+
+                    {
+                        "nodeGUID": "3e14b912-9f1d-4c82-87cf-0b74c11c21af",
+                        "state_ShortName": "Regional-VIC",
+                        "state_LongName": "Regional Victoria",
+                        "state_ShorterName": "R.VIC",
+                        "state_CenterLatitude": -37.40923,
+                        "state_CenterLongitude": 145.39313,
+                        "state_BoundsRadius": 1.3,
+                        "state_IncludeRegions": "Ballarat, Bendigo, Bairnsdale, Geelong, Gippsland, Shepparton, Warrnambool & surrounding areas",
+                        "state_PostcodeRanges": [[3208, 4000]],
+                        "state_IsDefault": false
+                    }]
+            },
+
+            {
+                "itemGUID": "a9f0429c-75ec-4be3-9719-6a6f4fdd7195",
+                "australianState_Name": "New South Wales",
+                "australianState_ShorterName": "NSW",
+                "australianState_Regions": [
+                    {
+                        "nodeGUID": "dadaafa9-99bf-4ebd-82f1-4fe67fe0dcc6",
+                        "state_ShortName": "Sydney-Region",
+                        "state_LongName": "Sydney Region",
+                        "state_ShorterName": "SYD",
+                        "state_CenterLatitude": -33.7335217,
+                        "state_CenterLongitude": 150.9459213,
+                        "state_BoundsRadius": 0.8,
+                        "state_IncludeRegions": "Across the Sydney, Illawarra, Central West & Hunter Regions of NSW",
+                        "state_PostcodeRanges": [[0, 2235], [2500, 2535], [6000, 99999]],
+                        "state_IsDefault": false
+                    },
+
+                    {
+                        "nodeGUID": "f325fca6-7f67-449b-8bf1-3a201ac23715",
+                        "state_ShortName": "Southern-NSW",
+                        "state_LongName": "Southern New South Wales",
+                        "state_ShorterName": "S.NSW",
+                        "state_CenterLatitude": -36.12944,
+                        "state_CenterLongitude": 144.75097,
+                        "state_BoundsRadius": 0.8,
+                        "state_IncludeRegions": "Albury, Wodonga, Wagga Wagga & surrounding areas",
+                        "state_PostcodeRanges": [[2600, 3000]],
+                        "state_IsDefault": false
+                    },
+
+                    {
+                        "nodeGUID": "deab8294-46e7-490d-8582-afe120439997",
+                        "state_ShortName": "Northern-NSW",
+                        "state_LongName": "Northern New South Wales",
+                        "state_ShorterName": "N.NSW",
+                        "state_CenterLatitude": -28.5484049,
+                        "state_CenterLongitude": 153.4987604,
+                        "state_BoundsRadius": 0.2,
+                        "state_IncludeRegions": "Northern Rivers and Northern NSW including Ballina & Pottsville",
+                        "state_PostcodeRanges": [[2265, 2466]],
+                        "state_IsDefault": false
+                    }]
+            },
+
+            {
+                "itemGUID": "81a7b58a-3e68-44bd-8640-37cd3faca47c",
+                "australianState_Name": "Queensland",
+                "australianState_ShorterName": "QLD",
+                "australianState_Regions": [
+                    {
+                        "nodeGUID": "1bf1de00-de5d-4875-b768-f18733aed4fc",
+                        "state_ShortName": "QLD",
+                        "state_LongName": "Queensland",
+                        "state_ShorterName": "QLD",
+                        "state_CenterLatitude": -28.07388,
+                        "state_CenterLongitude": 153.37928,
+                        "state_BoundsRadius": 0.8,
+                        "state_IncludeRegions": "Gold Coast, Brisbane, west to Toowoomba and north to the Sunshine Coast & Hervey Bay",
+                        "state_PostcodeRanges": [[4000, 5000]],
+                        "state_IsDefault": false
+                    }]
+            },
+
+            {
+                "itemGUID": "475e97e5-3661-46a2-95bf-823b5d6b06c2",
+                "australianState_Name": "South Australia",
+                "australianState_ShorterName": "SA",
+                "australianState_Regions": [
+                    {
+                        "nodeGUID": "af93f135-0b87-4070-ae67-fcef1fc6a641",
+                        "state_ShortName": "SA",
+                        "state_LongName": "South Australia",
+                        "state_ShorterName": "SA",
+                        "state_CenterLatitude": -34.924038,
+                        "state_CenterLongitude": 138.62377,
+                        "state_BoundsRadius": 0.2,
+                        "state_IncludeRegions": "Metropolitan Adelaide & surrounding areas",
+                        "state_PostcodeRanges": [[5000, 6000]],
+                        "state_IsDefault": false
+                    }]
+            }];
+
+        // user's specific values
+        var regionInfo = {
+            // buildRegion is region user selected or was set for him
+            // It can be different than viewingRegion and will be used
+            // in viewing region confirmation alert for the
+            // "Take me to my build region" option
+            buildRegion: "dadaafa9-99bf-4ebd-82f1-4fe67fe0dcc6",
+            showBuildRegionTip: false,
+            showBuildRegionPrompt: false,
+
+            // viewingRegion is the region used to render the current page
+            viewingRegion: "dadaafa9-99bf-4ebd-82f1-4fe67fe0dcc6",
+            showViewingRegionAlert: false
+        };
+    </script>
+    <script>var JSONPdomain = window.location.protocol+'//'+window.location.host;</script><script>
+        var mainURL = 'http://js.metricon.com.au/Custom/js/build/main-9f88b531.js';
+    </script>
+
+    <script src="http://js.metricon.com.au/Custom/js/build/regionSelectorMain-95a3e380.js"></script><link href="http://images.metricon.com.au/Custom/img/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="http://images.metricon.com.au/Custom/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="http://images.metricon.com.au/Custom/img/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">
+    <link href="http://images.metricon.com.au/Custom/img/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
+    <link href="http://images.metricon.com.au/Custom/img/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"><link rel="canonical" href="http://www.metricon.com.au/">
+
+    <meta name="robots" content="NOODP">
+    <meta name="robots" content="NOYDIR">
+</head>
+<body class="LTR Safari Chrome Safari45 Chrome45 ENAU ContentBody" >
+<!-- Data Layer -->
+<script>
+    dataLayer = [ ] ;
+    if (window.dataLayer) {
+        window.dataLayer.push({
+            'loggedin': false,
+            'selectedRegion': 'Sydney Region'
+        });
+    }
+</script>
+<!-- End Data Layer --><!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-W6LTN5"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W6LTN5');</script>
+<!-- End Google Tag Manager -->
+
+<form method="post" action="/" onsubmit="javascript:return WebForm_OnSubmit();" id="form">
+    <div class="aspNetHidden">
+        <input type="hidden" name="manScript_HiddenField" id="manScript_HiddenField" value="" />
+        <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+        <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+
+    </div>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var theForm = document.forms['form'];
+        if (!theForm) {
+            theForm = document.form;
+        }
+        function __doPostBack(eventTarget, eventArgument) {
+            if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                theForm.__EVENTTARGET.value = eventTarget;
+                theForm.__EVENTARGUMENT.value = eventArgument;
+                theForm.submit();
+            }
+        }
+        //]]>
+    </script>
+
+
+    <script src="/WebResource.axd?d=Sr6othqVZyMQC06qcRPKGgTdHl99WhZoMieCgSDx0OIZRw-qQ5bpaEctPjh3qn3gtYPCT_j0J12sU_GSZNMb6PJNQSxRv_EIcFzEDr4_zY81&amp;t=635586524020000000" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        //<![CDATA[
+        window.fbAsyncInit = function () { FB.init({ appId: '1448021578788385', status: true, cookie: false, xfbml: true, oauth: true }); };
+        (function (d) {
+            var js, id = 'facebook-jssdk'; if (d.getElementById(id)) { return; }
+            js = d.createElement('script'); js.id = id; js.async = true;
+            js.src = '//connect.facebook.net/en_US/all.js';
+            d.getElementsByTagName('head')[0].appendChild(js);
+        } (document));
+
+        //]]>
+    </script>
+    <script type="text/javascript">
+        //<![CDATA[
+        function Facebook_login() {
+            FB.getLoginStatus(function (response) {
+                if (response.status === 'connected') {
+                    var hr = window.location.href;
+                    if (hr.indexOf('confirmed=') < 0) {
+                        if (hr.indexOf('?', 0) >= 0) { hr = hr + '&'; }
+                        else { hr = hr + '?'; }
+                        hr = hr + 'confirmed=' + response.authResponse.accessToken;
+                        if (!window.fbRedirectedAfterLogon) {
+                            window.fbRedirectedAfterLogon = true;
+                            window.location.href = hr;
+                        }
+                    }
+                }
+            });
+        }
+        //]]>
+    </script>
+    <script type="text/javascript">
+        //<![CDATA[
+
+        function UpdateLabel_p_lt_ctl13_Custom_LogonForm(content, context) {
+            var lbl = document.getElementById(context);
+            if(lbl)
+            {
+                lbl.innerHTML = content;
+                lbl.className = "InfoLabel";
+            }
+        }
+        //]]>
+    </script><input type="hidden" name="lng" id="lng" value="en-AU" />
+    <script type="text/javascript">
+        //<![CDATA[
+
+        function PM_Postback(param) { if (window.top.HideScreenLockWarningAndSync) { window.top.HideScreenLockWarningAndSync(1080); }__doPostBack('m',param); }
+        function PM_Callback(param, callback, ctx) { if (window.top.HideScreenLockWarningAndSync) { window.top.HideScreenLockWarningAndSync(1080); }WebForm_DoCallback('m',param,callback,ctx,null,true); }
+        //]]>
+    </script>
+    <script src="/ScriptResource.axd?d=VKXwdb1URDzL_Lg38zQcalwFF48dKomDDzCTmqtD_ZBbSkfM0flfSpeWCfZ6VJzd45bPBG2fFVG6Cv7rVvg9fEQeQorXmVhCS5mlu6d5Gx3rXiuRPrPQO-YhwKmBn4TnSSoCs4FFyZNHDnDhRhZzkQtNDTMyhKW0XQS6e1DPgKs1&amp;t=fffffffffe82416f" type="text/javascript"></script>
+    <script src="/ScriptResource.axd?d=89IlO9D5hkgS-8PtO2vOLZIPSnmvwk4xrcW4AtUCylvh_m0LgUfUka5WEaYEDxCjIXQ0vV-CObsGgDRcYOnOqX8YVRLgtF61Ad5--laPv_-O9-_-zRViEADxPxzALCTU0&amp;t=3a1336b1" type="text/javascript"></script>
+    <script src="/ScriptResource.axd?d=1Ht8mnKbyK3iszQgOTTGGha2qIjGkmBlnF5uZ_DJZz1oxlSZaMvUFoQEhlt0mmIRmloEAcKsYw_1eeeWeYZVyXjujF6Cbs0u8yDqHN0z4kyBN_v1Z74TXJdfy0r_jUFUfdX_kpUALfHfRc0cZL4qQw2&amp;t=3a1336b1" type="text/javascript"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        function WebForm_OnSubmit() {
+            if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+            return true;
+        }
+        //]]>
+    </script>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        Sys.WebForms.PageRequestManager._initialize('manScript', 'form', ['tp$lt$ctl13$Custom_LogonForm$UpdatePanelLogin','','tp$lt$ctl13$Custom_LogonForm$pnlUpdatePasswordRetrievalLink','','tp$lt$ctl13$Custom_LogonForm$pnlUpdatePasswordRetrieval','','tctxM',''], ['p$lt$ctl13$Custom_LogonForm$lnkPasswdRetrieval',''], [], 90, '');
+        //]]>
+    </script>
+    <div id="CMSHeaderDiv">
+        <!-- -->
+    </div>
+    <div id="ctxM">
+
+    </div>
+
+
+
+
+
+    <!-- Data Layer -->
+    <script type="text/javascript">
+        if('' !== ''){
+            window.dataLayer.push({"uid": ""});
+        }
+    </script>
+    <!-- End Data Layer -->
+
+
+
+    <div
+            class="browserupgrade"
+            data-warning-strong='<p class="js-hideable-warning"><span class="icon-warning"></span> You are using an unsupported browser, many features won&#39;t work or may look broken.</p>'
+            data-warning-light='<p class="js-hideable-warning"><span class="icon-warning"></span> You are using an unsupported browser, so some features may not work.</p>'
+            data-upgrade='<p>Please upgrade to a <a href="http://browsehappy.com/" target="_blank">modern browser</a>.</p>'>
+        <button class="browserupgrade-trigger js-collapse-browserupgrade"></button>
+    </div>
+
+    <div class="body-bag">
+        <ul class="skip-links assistive">
+            <li><a href="#main-nav">Skip to main menu</a></li>
+            <li><a href="#content">Skip to main content</a></li>
+            <li><a href="#footer">Skip to footer</a></li>
+        </ul>
+
+        <header id="header" class="header" data-in-page-nav="<span class='icon-arrowup'></span>&nbsp;&nbsp;&nbsp;Top">
+            <div class="top-bar">
+                <div class="container">
+                    <ul class="right-top-nav not-signed-in">
+                        <li>
+                            <a href="#build-region" class="build-region-link">
+                                <span class="min-width-768">Build in:</span>
+                                <span class="selected-region">&nbsp;</span>
+                                <span class="icon-arrowdown"></span>
+                            </a>
+                            <div class="build-region-popup" hidden>
+                                <p></p>
+
+                                <a href="#" class="build-region-popup-close">
+                                    <span class="icon-cross"></span>
+                                    <span class="screen-reader-text">Close</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="https://www.metricon.com.au/my-home/my-favourites">
+                                <span class="icon-favourite-filled"></span>
+                                <span class="min-width-320"></span>
+                                <span class="min-width-768">Favourites</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.metricon.com.au/login.aspx?returnurl=~/">
+                                <span class="icon-profile"></span>Sign In
+                                <span class="min-width-768">/ Join Us</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="logo-bar">
+                <div class="container">
+                    <a href="http://www.metricon.com.au/" class="logo">Metricon</a>
+                    <a href="#" class="nav-trigger min-width-320">Open nav</a>
+                    <a href="#" class="back-btn"><span class="icon-arrowleft"></span><span class="screen-reader-text">Back</span></a>
+                    <nav class="tiles-menu-nav" id="main-nav">
+
+
+                        <ul class="tiles-menu-nav-list">
+                            <li class="home min-width-768"><a href="http://www.metricon.com.au/"><span class="icon-home"></span><span class="screen-reader-text">Home</span></a></li>
+
+                            <li>
+                                <a href="http://www.metricon.com.au/brands/sydney-region/all-brands">Get Started</a>
+
+                                <ul class="tiles-menu" data-cols="5">
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-2 tiles-menu-tile--mobile-half-w {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/brands/sydney-region/metro" class="tiles-menu-tile-content set-text-color-light" target="_self">
+                                            <div class="tiles-menu-tile-img brand-tile--metro">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/metro-megamenu-560x360.jpg?width=560&amp;height=360&amp;ext=.jpg" data-alt="Metro"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <picture><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/metro-logo.svg?ext=.svg" type="image/svg+xml"><!--[if IE 9]></video><![endif]--><img srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/logos/METRO-LOGO_1.png?width=440&amp;height=140&amp;ext=.png" alt="Metro-logo"></picture><span class="tiles-menu-tile-link">Metro</span>
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    <strong class="attention">Smart Designs</strong>
+                                                    Find your dream home.
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-2 tiles-menu-tile--mobile-half-w {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/brands/sydney-region/designer" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img brand-tile--designer">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/MegaMenus_GetStarted_Image2_Designer.jpg?width=560&amp;height=360&amp;ext=.jpg" data-alt="Designer"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <picture><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/mt-sbrand-logo-designer.svg?ext=.svg" type="image/svg+xml"><!--[if IE 9]></video><![endif]--><img srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/mt-sbrand-logo-designer.png?width=440&amp;height=140&amp;ext=.png" alt="Designer-logo"></picture><span class="tiles-menu-tile-link">Designer</span>
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    <strong class="attention">Affordable Luxury</strong>
+                                                    Beautiful home designs.
+                                                    <br/> Stylish spaces. Incredible value.
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-1  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/display-homes/sydney-region" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/Oct15%20Update/GetStarted/Salamanca_Facade.jpg?width=280&amp;height=280&amp;ext=.jpg" data-alt="Display Homes"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    DISPLAY HOMES</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Find one near you
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-2  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/brands/sydney-region/home-solution" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img brand-tile--homesolutions">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/MegaMenus_GetStarted_Image3_Home-Solution.jpg?width=560&amp;height=360&amp;ext=.jpg" data-alt="Home Solution"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <picture><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/mt-sbrand-logo-homesolutions.svg?ext=.svg" type="image/svg+xml"><!--[if IE 9]></video><![endif]--><img srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/mt-sbrand-logo-homesolutions.png?width=440&amp;height=140&amp;ext=.png" alt="Home Solution-logo"></picture><span class="tiles-menu-tile-link">Home Solution</span>
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    <strong class="attention">Easy. Fast. Affordable.</strong>
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-2  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/home-advisor/starter-kits/sydney-region/knock-down-rebuild" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/Oct15%20Update/GetStarted/Bohemian_Living.jpg?width=560&amp;height=280&amp;ext=.jpg" data-alt="KDRB"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    KNOCKDOWN REBUILD</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Love your address but not your home?
+                                                    <br/> We have the answer.
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <div class="tiles-menu-tile tiles-menu-tile--b-1">
+                                            <div class="tiles-menu-tile-content">
+                                                <div class="tiles-menu-header">
+                                                    Discover
+                                                </div>
+                                                <ul class="tiles-menu-list">
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/brands/sydney-region/all-brands" target="_self">
+                                                            All Brands
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-advisor/tools-resources/sydney-region/publications" target="_self">
+                                                            Product Books
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/latest-offers/sydney-region" target="_self">
+                                                            Latest Offers
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/get-inspired/lookbook" target="_self">
+                                                            Lookbook
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/get-inspired/sydney-region/studio-m" target="_self">
+                                                            Studio M
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+
+                            <li>
+                                <a href="http://www.metricon.com.au/new-home-designs/sydney-region">Home Designs</a>
+
+                                <ul class="tiles-menu" data-cols="5">
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--a-2  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/new-home-designs/sydney-region?designranges=metro" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img brand-tile--metro">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/Oct15%20Update/HomeDesigns/Yallambee_Facade.jpg?width=980&amp;height=560&amp;ext=.jpg" data-alt="Metro"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <picture><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/metro-logo.svg?ext=.svg" type="image/svg+xml"><!--[if IE 9]></video><![endif]--><img srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/METRO-LOGO.png?width=440&amp;height=140&amp;ext=.png" alt="Metro-logo"></picture><span class="tiles-menu-tile-link">Metro</span>
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Whatever your
+                                                    <em class="attention">DREAM HOME</em>
+                                                    our Metro range has something for you.
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-2  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/new-home-designs/sydney-region?designranges=designer" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img brand-tile--designer">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/Oct15%20Update/HomeDesigns/Vaucluse_Facade.jpg?width=560&amp;height=360&amp;ext=.jpg" data-alt="Designer"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <picture><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/mt-sbrand-logo-designer.svg?ext=.svg" type="image/svg+xml"><!--[if IE 9]></video><![endif]--><img srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/mt-sbrand-logo-designer.png?width=440&amp;height=140&amp;ext=.png" alt="Designer-logo"></picture><span class="tiles-menu-tile-link">Designer</span>
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Our Designer range offers
+                                                    <em class="attention">Beautiful Design.</em>
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-1  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/new-home-designs" class="tiles-menu-tile-content set-text-color-dark" target="_self">
+                                            <div class="tiles-menu-tile-img tiles-menu-tile-img--dustygrey">
+
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    SEE ALL HOME DESIGNS</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Explore our range of beautiful homes.
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-1  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/brands/sydney-region/home-solution" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img brand-tile--homesolutions">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/Oct15%20Update/HomeDesigns/Erickson_Facade.jpg?width=490&amp;height=280&amp;ext=.jpg" data-alt="Home Solutions"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <picture><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/mt-sbrand-logo-homesolutions.svg?ext=.svg" type="image/svg+xml"><!--[if IE 9]></video><![endif]--><img srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/mt-sbrand-logo-homesolutions.png?width=440&amp;height=140&amp;ext=.png" alt="Home Solutions-logo"></picture><span class="tiles-menu-tile-link">Home Solutions</span>
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    <strong>Easy. Fast. Affordable.</strong>
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-1  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/home-advisor/starter-kits/sydney-region/knock-down-rebuild" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/Oct15%20Update/HomeDesigns/Laguna_Facade.jpg?width=490&amp;height=280&amp;ext=.jpg" data-alt="KDRB"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    KNOCKDOWN REBUILD</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Love your address but not your home?
+                                                    <br/> We have the answer.
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <div class="tiles-menu-tile tiles-menu-tile--b-1">
+                                            <div class="tiles-menu-tile-content">
+                                                <div class="tiles-menu-header">
+                                                    Starter Kits
+                                                </div>
+                                                <ul class="tiles-menu-list">
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-advisor/starter-kits/sydney-region/first-home-buyer" target="_self">
+                                                            First home buyer
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-advisor/starter-kits/sydney-region/first-time-builder" target="_self">
+                                                            First time builder
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-advisor/starter-kits/sydney-region/knock-down-rebuild" target="_self">
+                                                            Knockdown Newbuild
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-and-land/sydney-region">Home & Land</a>
+
+                                <ul class="tiles-menu" data-cols="5">
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--a-2  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/home-and-land/sydney-region" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/Oct15%20Update/HomeandLand/Sovereign_Facde.jpg?width=980&amp;height=560&amp;ext=.jpg" data-alt="Find home &amp; land"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <span class="tiles-menu-tile-link">Find home & land</span>
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    <em class="attention">FIND</em>
+                                                    <strong class="attention">HOME AND LAND</strong>
+                                                    Love where you live with a <br/>Metricon home and land package.
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-2  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/home-and-land/sydney-region?packagetype=displayhomeforsale&amp;suburbname=" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/Oct15%20Update/HomeandLand/Liberty_Kitchen.jpg?width=560&amp;height=360&amp;ext=.jpg" data-alt="Display Homes"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    DISPLAY HOMES</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Find one near you
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-1  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/home-advisor/starter-kits/sydney-region" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/mm-starterkits-950x360.jpg?width=950&amp;height=560&amp;ext=.jpg" data-alt="Starter Kits"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    STARTER KITS</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    With over 37 years' experience building beautiful homes, we have a lot of knowledge to share.
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-2  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/home-advisor/starter-kits/sydney-region/knock-down-rebuild" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/Oct15%20Update/HomeandLand/Vantage_Outdoor.jpg?width=560&amp;height=360&amp;ext=.jpg" data-alt="KDRB"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    KNOCKDOWN REBUILD</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Love your address but not your home?
+                                                    <br/>  We have the answer.
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <div class="tiles-menu-tile tiles-menu-tile--b-1">
+                                            <div class="tiles-menu-tile-content">
+                                                <div class="tiles-menu-header">
+                                                    Browse By Region
+                                                </div>
+                                                <ul class="tiles-menu-list">
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-and-land/sydney-region?regionid=" target="_self">
+                                                            All Regions
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-and-land/sydney-region?regionid=central%20coast&amp;regionname=central%20coast" target="_self">
+                                                            Central Coast
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-and-land/sydney-region?regionid=hunter%20region&amp;regionname=hunter%20region" target="_self">
+                                                            Hunter Region
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-and-land/sydney-region?regionid=newcastle&amp;regionname=newcastle" target="_self">
+                                                            Newcastle
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-and-land/sydney-region?regionid=orange&amp;regionname=orange" target="_self">
+                                                            Orange
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-and-land/sydney-region?regionid=sydney%20west&amp;regionname=sydney%20west" target="_self">
+                                                            Sydney West
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+
+                            <li>
+                                <a href="http://www.metricon.com.au/display-homes/sydney-region">Display Homes</a>
+
+                                <ul class="tiles-menu" data-cols="5">
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--a-2 tiles-menu-tile--mobile-half-w {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/display-homes/sydney-region?suburbname=" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/Oct15%20Update/DisplayHomes/Sovereign_Facade.jpg?width=980&amp;height=560&amp;ext=.jpg" data-alt="Find Display Homes"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <span class="tiles-menu-tile-link">Find Display Homes</span>
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    <em class="attention">FIND</em>
+                                                    <strong class="attention">DISPLAY<br/>HOMES</strong>
+                                                    Find one near you.
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--a-2 tiles-menu-tile--mobile-half-w {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/home-and-land/sydney-region?packagetype=displayhomeforsale&amp;regionid=" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/Oct15%20Update/DisplayHomes/Vaucluse_Facade.jpg?width=980&amp;height=560&amp;ext=.jpg" data-alt="DHFS"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    DISPLAY HOMES FOR SALE</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Find one near you.
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-1 tiles-menu-tile--mobile-two-third-w {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/home-advisor/starter-kits/sydney-region/knock-down-rebuild" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/Oct15%20Update/DisplayHomes/Orlando_Facade.jpg?width=490&amp;height=280&amp;ext=.jpg" data-alt="KDRB"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    KNOCKDOWN REBUILD</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Love your address but not your home?
+                                                    <br/> We have the answer.
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <div class="tiles-menu-tile tiles-menu-tile--b-1">
+                                            <div class="tiles-menu-tile-content">
+                                                <div class="tiles-menu-header">
+                                                    Browse By Region
+                                                </div>
+                                                <ul class="tiles-menu-list">
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/display-homes/sydney-region" target="_self">
+                                                            All Regions
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/display-homes/sydney-region?regionid=central%20west" target="_self">
+                                                            Central West
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/display-homes/sydney-region?regionid=north%20coast" target="_self">
+                                                            North Coast
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/display-homes/sydney-region?regionid=sales%20centre" target="_self">
+                                                            Sales Centre
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/display-homes/sydney-region?regionid=south%20coast" target="_self">
+                                                            South Coast
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/display-homes/sydney-region?regionid=sydney" target="_self">
+                                                            Sydney
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+
+                            <li>
+                                <a href="http://www.metricon.com.au/get-inspired">Inspiration</a>
+
+                                <ul class="tiles-menu" data-cols="5">
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--a-2  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/get-inspired" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/mm-inspireme-950x360.jpg?width=950&amp;height=560&amp;ext=.jpg" data-alt="Inspire me"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    INSPIRE ME</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Step inside our home of style, inspiration and beautiful design.
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-2  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/get-inspired/gallery" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/mm-gallery-950x360.jpg?width=950&amp;height=560&amp;ext=.jpg" data-alt="Gallery"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    GALLERY</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    We have all the latest design ideas to make your house a home.
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-1  {{{offertilewrap}}}">
+                                        <a href="https://www.metricon.com.au/my-home/my-favourites" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img tiles-menu-tile-img--inverted">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega menu/mm-myhome-950x360.jpg?width=950&amp;height=560&amp;ext=.jpg" data-alt="My Home"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    MY HOME</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Need somewhere to collect and organise your favourites? Here it is!
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-2  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/get-inspired/lookbook" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/mm-lookbook-950x360.jpg?width=950&amp;height=560&amp;ext=.jpg" data-alt="Lookbook"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <picture><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/Lookbook_Logo.svg?ext=.svg" type="image/svg+xml"><!--[if IE 9]></video><![endif]--><img srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/Lookbook_Logo.png?width=440&amp;height=140&amp;ext=.png" alt="Lookbook-logo"></picture><span class="tiles-menu-tile-link">Lookbook</span>
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Step inside our home of style, inspiration and beautiful design.
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-1  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/get-inspired/sydney-region/studio-m" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/MegaMenus_Inspiration_Image5_StudioM.jpg?width=280&amp;height=280&amp;ext=.jpg" data-alt="Studio M"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <picture><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/StudioM_Logo.svg?ext=.svg" type="image/svg+xml"><!--[if IE 9]></video><![endif]--><img srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/StudioM-logo.png?width=190&amp;height=31&amp;ext=.png" alt="Studio M-logo"></picture><span class="tiles-menu-tile-link">Studio M</span>
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Our studio M selection centres are where we make customising new homes easy, convenient and fun!
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-advisor">Home Advisor</a>
+
+                                <ul class="tiles-menu" data-cols="5">
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--a-2  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/home-advisor/tools-resources" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/mm-tools-950x360.jpg?width=950&amp;height=560&amp;ext=.jpg" data-alt="Tools &amp; Resources"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    TOOLS &amp;&nbsp;<strong>RESOURCES</strong></p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Every building project needs a toolkit. </br>Here's yours.
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-2  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/home-advisor/starter-kits/sydney-region" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/mm-starterkits-950x360.jpg?width=950&amp;height=560&amp;ext=.jpg" data-alt="Starter Kits"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    STARTER KITS</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    With over 37 years' experience building beautiful homes, we have a lot of knowledge to share.
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-1  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/home-advisor/faqs" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/mm-faqs-950x360.jpg?width=950&amp;height=560&amp;ext=.jpg" data-alt="FAQs"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    FAQS</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Have some questions? We've got the answers
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-1  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/home-advisor/why-metricon" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/mm-whymetricon-950x360.jpg?width=950&amp;height=560&amp;ext=.jpg" data-alt="Why Metricon"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    WHY METRICON</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    More families across Australia choose Metricon. Here's why.
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-1  {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/home-advisor" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/mm-homeadvisor-950x360.jpg?width=950&amp;height=560&amp;ext=.jpg" data-alt="Homes Advisor"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    HOMES ADVISOR</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Thinking about building a new home? Start right here.
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <div class="tiles-menu-tile tiles-menu-tile--b-1">
+                                            <div class="tiles-menu-tile-content">
+                                                <div class="tiles-menu-header">
+                                                    Useful Links
+                                                </div>
+                                                <ul class="tiles-menu-list">
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-advisor" target="_self">
+                                                            Home Advisor
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-advisor/tools-resources/sydney-region/publications" target="_self">
+                                                            Product Books
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-advisor/tools-resources" target="_self">
+                                                            Checklists & guides
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-advisor/tools-resources/calculators" target="_self">
+                                                            Calculators
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="http://www.metricon.com.au/home-advisor/tools-resources/building-process-videos" target="_self">
+                                                            Building process videos
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="https://www.metricon.com.au/contact-us/finance-enquiry" target="_self">
+                                                            Finance
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+
+                            <li>
+                                <a href="http://www.metricon.com.au/latest-offers/sydney-region">Offers</a>
+
+                                <ul class="tiles-menu" data-cols="5">
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--a-2  tiles-menu-tile--offer">
+                                        <a href="http://www.metricon.com.au/latest-offers/sydney-region/reward-yourself" class="tiles-menu-tile-content set-text-color-light" target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Melbourne/mega%20menu/Megamenu-metro-blue-980x560.jpg?width=980&amp;height=560&amp;ext=.jpg" data-alt="Reward Yourself"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <div class="tiles-menu-tile-offer-ir"><div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-alt="Reward Yourself-offer" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Melbourne/mega%20menu/MegaMenus_Offers_textPNG.png?width=560&amp;height=560&amp;ext=.png"></div></div><span class="tiles-menu-tile-link">Reward Yourself</span>
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--a-2 tiles-menu-tile--mobile-half-w {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/latest-offers/sydney-region/freedom-promotion" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img brand-tile--freedom">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/sbrand-freedom-950x560.jpg?width=950&amp;height=560&amp;ext=.jpg" data-alt="Freedom"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <picture><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/mt-sbrand-logo-freedom.svg?ext=.svg" type="image/svg+xml"><!--[if IE 9]></video><![endif]--><img srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/logos/mt-sbrand-logo-freedom.png?width=440&amp;height=140&amp;ext=.png" alt="Freedom-logo"></picture><span class="tiles-menu-tile-link">Freedom</span>
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    <em class="attention">Homes starting from</em>
+                                                    <strong class="attention">$144,100*</strong>
+                                                    <small class="attention">Sydney build regions only.</small>
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-1 tiles-menu-tile--mobile-two-third-w {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/home-advisor/starter-kits/sydney-region/knock-down-rebuild" class="tiles-menu-tile-content " target="_self">
+                                            <div class="tiles-menu-tile-img ">
+                                                <div class="js-deferred-img hide" data-deferred-img-mq="(min-width: 768px)" data-deferred-img-delay="2000" data-src="http://images.metricon.com.au/Metricon/media/metricon/brands/Sydney/mega%20menu/Oct15%20Update/Offers/Mantra_Facade.jpg?width=490&amp;height=280&amp;ext=.jpg" data-alt="KDRB"></div>
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    KNOCKDOWN REBUILD</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Love your address but not your home? We have the answer.
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="tiles-menu-tile tiles-menu-tile--b-1 tiles-menu-tile--mobile-one-third-w {{{offertilewrap}}}">
+                                        <a href="http://www.metricon.com.au/latest-offers/sydney-region" class="tiles-menu-tile-content set-text-color-dark" target="_self">
+                                            <div class="tiles-menu-tile-img tiles-menu-tile-img--dustygrey">
+
+                                            </div>
+                                            <div class="tiles-menu-tile-title">
+                                                <p>
+                                                    SEE ALL LATEST OFFERS</p>
+
+                                            </div>
+                                            <div class="tiles-menu-tile-text">
+                                                <p>
+                                                    Our latest offers, styles and designs have been created with you in mind.
+
+
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+
+                        </ul>
+
+
+
+                        <ul class="left-top-nav">
+                            <li class="min-width-320"><a href="tel:1300786773">1300 786 773</a></li><li><a href="http://www.metricon.com.au/about-us">About Us</a></li><li><a href="https://www.metricon.com.au/contact-us/general-contact">Contact Us</a></li><li><a href="http://www.metricon.com.au/latest-offers">Latest Offers</a></li><li><a href="http://www.metricon.com.au/home-truths"><span class="min-width-320">Home Truths </span>Blog</a></li><li><a href="https://www.metricon.com.au/my-home">My Home</a></li><li class="min-width-768"><a href="tel:1300786773">1300 786 773</a></li>
+                        </ul>
+                        <div class="search">
+                            <a href="#"><span class="min-width-768 icon-search"></span> <span class="text">Search</span></a><div id="p_lt_ctl08_SearchBox_pnlSearch" class="search-inner" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;p_lt_ctl08_SearchBox_btnSearch&#39;)">
+
+
+                            <input name="p$lt$ctl08$SearchBox$txtWord" type="text" maxlength="1000" id="p_lt_ctl08_SearchBox_txtWord" title="Search Metricon" placeholder="Search" />
+                            <input type="submit" name="p$lt$ctl08$SearchBox$btnSearch" value="Submit" id="p_lt_ctl08_SearchBox_btnSearch" class="search-submit" />
+
+
+                        </div>
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+
+
+        <main id="content" class="home">
+
+
+            <div class="hero-carousel-container">
+                <div class="hero-carousel">
+
+
+                    <div class="hero-carousel-slide">
+
+
+                        <div class="container hero-carousel-box-container ">
+                            <div class="hero-carousel-box  hero-carousel-box--add-background hero-carousel-box--place-left hero-carousel-box--place-higher hero-carousel-box--place-bottom hero-carousel-box--place-higher">
+                                <h2 class="hero-carousel-title">Love where you live</h2><h3 class="hero-carousel-secondary-title"></h3><div class="hero-carousel-box-text"></div><a href="http://www.metricon.com.au/brands/sydney-region/all-brands" class="hero-carousel-btn btn-a">Find out more</a>
+                            </div>
+                        </div>
+
+
+                        <div data-href='http://www.youtube.com/embed/-xJkX0Srhkw?rel=0?wmode=transparent' class="hero-carousel-play fancybox-iframe hide-text">Open Video</div>
+
+
+
+
+                        <div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/home/banners/__thumbnails/TV-Hero-Image-1400x580.jpg_1400_580.jpg 1400w,http://images.metricon.com.au/Metricon/media/metricon/home/banners/__thumbnails/TV-Hero-Image-1400x580.jpg_805_475.jpg 805w" data-sizes="100vw" data-alt="Metricon Banner" class="hero-carousel-deferred-img" ></div>
+
+
+
+
+
+
+                        <div class="hero-carousel-bottom-gradient"></div>
+                    </div>
+
+
+
+                    <div class="hero-carousel-slide">
+
+
+                        <div class="container hero-carousel-box-container ">
+                            <div class="hero-carousel-box  hero-carousel-box--add-background hero-carousel-box--place-left hero-carousel-box--place-higher hero-carousel-box--place-bottom">
+                                <h2 class="hero-carousel-title">Display Homes</h2><h3 class="hero-carousel-secondary-title"></h3><div class="hero-carousel-box-text"></div><a href="http://www.metricon.com.au/display-homes" class="hero-carousel-btn btn-a">View Now</a>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/home/banners/NSW/Labour%20Dya/__thumbnails/NSW-LABOUR-DAY-2015-Homepage-Tile.jpg_1400_580.jpg 1400w" data-sizes="100vw" data-alt="Labour Day" class="hero-carousel-deferred-img" data-class="hero-desktop-image" data-deferred-img-mq="(min-width: 768px)"></div><div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/home/banners/NSW/Labour%20Dya/__thumbnails/MET-2796-LabourDay-Mobile-Image-805x475.jpg_805_475.jpg 805w" data-sizes="100vw" data-alt="Labour Day" class="hero-carousel-deferred-img" data-class="hero-mobile-image" data-deferred-img-mq="(max-width: 767px)"></div>
+
+
+
+
+
+                        <div class="hero-carousel-bottom-gradient"></div>
+                    </div>
+
+
+
+                    <div class="hero-carousel-slide">
+
+
+                        <div class="container hero-carousel-box-container  hero-carousel-box-container--desktop-only">
+                            <div class="hero-carousel-box  hero-carousel-box--add-background hero-carousel-box--place-left hero-carousel-box--place-higher hero-carousel-box--place-centre">
+                                <h2 class="hero-carousel-title">Latest Offers</h2><h3 class="hero-carousel-secondary-title"></h3><div class="hero-carousel-box-text"></div><a href="http://www.metricon.com.au/latest-offers/sydney-region/reward-yourself" class="hero-carousel-btn btn-a">View Now</a>
+                            </div>
+                        </div>
+
+
+
+                        <a href="http://www.metricon.com.au/latest-offers/sydney-region/reward-yourself">
+
+
+                            <div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/latest%20offers/nsw/Reward%20Yourself/__thumbnails/Reward-yourself-1400x580.jpg_1400_580.jpg 1400w" data-sizes="100vw" data-alt="Reward yourself" class="hero-carousel-deferred-img" data-class="hero-desktop-image" data-deferred-img-mq="(min-width: 768px)"></div><div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/latest%20offers/nsw/Reward%20Yourself/__thumbnails/rewardyourselfmobileimage.jpg_805_475.jpg 805w" data-sizes="100vw" data-alt="Reward yourself" class="hero-carousel-deferred-img" data-class="hero-mobile-image" data-deferred-img-mq="(max-width: 767px)"></div>
+
+
+
+                        </a>
+
+                        <div class="hero-carousel-bottom-gradient"></div>
+                    </div>
+
+
+
+                    <div class="hero-carousel-slide">
+
+
+                        <div class="container hero-carousel-box-container ">
+                            <div class="hero-carousel-box  hero-carousel-box--add-background hero-carousel-box--place-left hero-carousel-box--place-higher hero-carousel-box--place-centre">
+                                <h2 class="hero-carousel-title">New Home Designs</h2><h3 class="hero-carousel-secondary-title"></h3><div class="hero-carousel-box-text"></div><a href="http://www.metricon.com.au/new-home-designs/sydney-region" class="hero-carousel-btn btn-a">Search Now</a>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/home/banners/NSW/Oct15/__thumbnails/Salamanca_Facade.jpg_1400_580.jpg 1400w,http://images.metricon.com.au/Metricon/media/metricon/home/banners/NSW/Oct15/__thumbnails/Salamanca_Facade.jpg_805_475.jpg 805w" data-sizes="100vw" data-alt="New Home Designs" class="hero-carousel-deferred-img" ></div>
+
+
+                        <div class="hero-carousel-info-text">Images may depict fixtures, finishes and features not supplied by Metricon including landscaping, fencing and decorative landscaping items such as outdoor kitchens and barbeques. We also do not supply swimming pools, pool decks and fences.
+                        </div>
+
+
+
+                        <div class="hero-carousel-bottom-gradient"></div>
+                    </div>
+
+
+
+                    <div class="hero-carousel-slide">
+
+
+                        <div class="container hero-carousel-box-container ">
+                            <div class="hero-carousel-box  hero-carousel-box--add-background hero-carousel-box--place-left hero-carousel-box--place-higher hero-carousel-box--place-centre">
+                                <h2 class="hero-carousel-title">Home & Land Packages</h2><h3 class="hero-carousel-secondary-title"></h3><div class="hero-carousel-box-text"></div><a href="http://www.metricon.com.au/home-and-land" class="hero-carousel-btn btn-a">Search Now</a>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/home/banners/NSW/Oct15/__thumbnails/Laguna_Kitchen.jpg_1400_580.jpg 1400w,http://images.metricon.com.au/Metricon/media/metricon/home/banners/NSW/Oct15/__thumbnails/Laguna_Kitchen.jpg_805_475.jpg 805w" data-sizes="100vw" data-alt="Home &amp; Land" class="hero-carousel-deferred-img" ></div>
+
+
+
+
+
+
+                        <div class="hero-carousel-bottom-gradient"></div>
+                    </div>
+
+
+
+                    <div class="hero-carousel-slide">
+
+
+                        <div class="container hero-carousel-box-container ">
+                            <div class="hero-carousel-box  hero-carousel-box--add-background hero-carousel-box--place-left hero-carousel-box--place-higher hero-carousel-box--place-centre">
+                                <h2 class="hero-carousel-title">Display homes for sale</h2><h3 class="hero-carousel-secondary-title"></h3><div class="hero-carousel-box-text"></div><a href="http://www.metricon.com.au/display-homes/sydney-region" class="hero-carousel-btn btn-a">Search Now</a>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/home/banners/NSW/Oct15/__thumbnails/Metro_Living.jpg_1400_580.jpg 1400w,http://images.metricon.com.au/Metricon/media/metricon/home/banners/NSW/Oct15/__thumbnails/Metro_Living.jpg_805_475.jpg 805w" data-sizes="100vw" data-alt="DHFS" class="hero-carousel-deferred-img" ></div>
+
+
+                        <div class="hero-carousel-info-text">Images may depict fixtures, finishes and features not supplied by Metricon including landscaping, planter boxes and decorative landscaping items such as outdoor kitchens and barbeques. We also do not supply swimming pools, pool decks and fences.</div>
+
+
+
+                        <div class="hero-carousel-bottom-gradient"></div>
+                    </div>
+
+
+
+                    <div class="hero-carousel-slide">
+
+
+                        <div class="container hero-carousel-box-container ">
+                            <div class="hero-carousel-box  hero-carousel-box--add-background hero-carousel-box--place-left hero-carousel-box--place-higher hero-carousel-box--place-centre">
+                                <h2 class="hero-carousel-title">New Display Homes</h2><h3 class="hero-carousel-secondary-title"></h3><div class="hero-carousel-box-text"></div><a href="http://www.metricon.com.au/display-homes/sydney-region" class="hero-carousel-btn btn-a">Search Now</a>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/home/banners/NSW/Oct15/__thumbnails/Vaucluse_Facade.jpg_1400_580.jpg 1400w,http://images.metricon.com.au/Metricon/media/metricon/home/banners/NSW/Oct15/__thumbnails/Vaucluse_Facade.jpg_805_475.jpg 805w" data-sizes="100vw" data-alt="New Display Homes" class="hero-carousel-deferred-img" ></div>
+
+
+                        <div class="hero-carousel-info-text">Images may depict fixtures, finishes and features not supplied by Metricon including landscaping, fencing and decorative landscaping items such as outdoor kitchens and barbeques. We also do not supply swimming pools, pool decks and fences.
+                        </div>
+
+
+
+                        <div class="hero-carousel-bottom-gradient"></div>
+                    </div>
+
+
+
+                    <div class="hero-carousel-slide">
+
+
+                        <div class="container hero-carousel-box-container ">
+                            <div class="hero-carousel-box  hero-carousel-box--add-background hero-carousel-box--place-left hero-carousel-box--place-higher hero-carousel-box--place-centre">
+                                <h2 class="hero-carousel-title">KNOCKDOWN REBUILD</h2><h3 class="hero-carousel-secondary-title"></h3><div class="hero-carousel-box-text"></div><a href="http://www.metricon.com.au/home-advisor/starter-kits/sydney-region/knock-down-rebuild" class="hero-carousel-btn btn-a">Search Now</a>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/home/banners/NSW/Oct15/__thumbnails/Metro_Facade.jpg_1400_580.jpg 1400w,http://images.metricon.com.au/Metricon/media/metricon/home/banners/NSW/Oct15/__thumbnails/Metro_Facade.jpg_805_475.jpg 805w" data-sizes="100vw" data-alt="KNRB" class="hero-carousel-deferred-img" ></div>
+
+
+                        <div class="hero-carousel-info-text">Images may depict fixtures, finishes and features not supplied by Metricon including landscaping, fencing and decorative landscaping items such as outdoor kitchens and barbeques. We also do not supply swimming pools, pool decks and fences.
+                        </div>
+
+
+
+                        <div class="hero-carousel-bottom-gradient"></div>
+                    </div>
+
+
+
+                    <div class="hero-carousel-slide">
+
+
+                        <div class="container hero-carousel-box-container ">
+                            <div class="hero-carousel-box  hero-carousel-box--add-background hero-carousel-box--place-left hero-carousel-box--place-higher hero-carousel-box--place-centre">
+                                <h2 class="hero-carousel-title">INTERIOR INSPIRATION</h2><h3 class="hero-carousel-secondary-title"></h3><div class="hero-carousel-box-text"></div><a href="http://www.metricon.com.au/get-inspired/lookbook" class="hero-carousel-btn btn-a">Search Now</a>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/home/banners/NSW/Oct15/__thumbnails/Franklin_Outdoor.jpg_1400_580.jpg 1400w,http://images.metricon.com.au/Metricon/media/metricon/home/banners/NSW/Oct15/__thumbnails/Franklin_Outdoor.jpg_805_475.jpg 805w" data-sizes="100vw" data-alt="Interior Inspiration" class="hero-carousel-deferred-img" ></div>
+
+
+
+
+
+
+                        <div class="hero-carousel-bottom-gradient"></div>
+                    </div>
+
+
+                </div>
+                <div class="hero-carousel-container-bottom">
+                    <div class="hero-carousel-paging"></div>
+                </div>
+
+                <div class="hero-carousel-prev">
+                    <div class="icon-arrowleft"></div>
+                    <div class="hide-text">Previous</div>
+                </div>
+                <div class="hero-carousel-next">
+                    <div class="icon-arrowright"></div>
+                    <div class="hide-text">Next</div>
+                </div>
+            </div>
+
+
+
+            <section class="panel brands-carousel">
+                <h2 class="screen-reader-text">Metricon Brands</h2>
+                <div class="brands-carousel-content">
+                    <div class="controls">
+                        <a href="#" class="prev assistive"><span class="icon-arrowleft"></span>Prev</a>
+                        <a href="#" class="next assistive"><span class="icon-arrowright"></span>Next</a>
+                    </div>
+                    <div class="viewport" data-visible="4">
+
+
+                        <div class="brands-carousel-slide">
+                            <a href='http://www.metricon.com.au/brands/sydney-region/metro' class='brand-tile brand-tile--metro' target='_self'>
+                                <div class="brand-tile-img">
+                                    <div class="js-deferred-img" data-src='http://images.metricon.com.au/Metricon/media/metricon/brands/brand%20carousel/metro-brand-carousel-466x350.jpg?width=466&amp;height=350&amp;ext=.jpg' data-alt='Metro'></div>
+                                </div>
+                                <h2 class="brand-tile-logo">
+                                    <picture>
+                                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                        <source srcset='http://images.metricon.com.au/Metricon/media/metricon/brands/logos/metro-logo.svg?ext=.svg' type="image/svg+xml">
+                                        <!--[if IE 9]></video><![endif]-->
+                                        <img srcset='http://images.metricon.com.au/Metricon/media/metricon/brands/logos/METRO-LOGO.png?width=440&amp;height=140&amp;ext=.png' alt='Metro'>
+                                    </picture>
+                                </h2>
+                                <div class="brand-tile-text">
+                                    <p>
+                                        <strong>Smart Designs&nbsp;</strong>Find your dream home.</p>
+
+                                </div>
+                            </a>
+                        </div>
+
+
+
+
+
+                        <div class="brands-carousel-slide">
+                            <a href='http://www.metricon.com.au/brands/sydney-region/designer' class='brand-tile brand-tile--designer' target='_self'>
+                                <div class="brand-tile-img">
+                                    <div class="js-deferred-img" data-src='http://images.metricon.com.au/Metricon/media/metricon/brands/brand%20carousel/Designer-Background-Image_466x350.jpg?width=466&amp;height=350&amp;ext=.jpg' data-alt='Designer'></div>
+                                </div>
+                                <h2 class="brand-tile-logo">
+                                    <picture>
+                                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                        <source srcset='http://images.metricon.com.au/Metricon/media/metricon/brands/logos/mt-sbrand-logo-designer.svg?ext=.svg' type="image/svg+xml">
+                                        <!--[if IE 9]></video><![endif]-->
+                                        <img srcset='http://images.metricon.com.au/Metricon/media/metricon/brands/logos/mt-sbrand-logo-designer.png?width=440&amp;height=140&amp;ext=.png' alt='Designer'>
+                                    </picture>
+                                </h2>
+                                <div class="brand-tile-text">
+                                    <p>
+                                        <strong>Affordable Luxury</strong></p>
+                                    <p>
+                                        Beautiful home designs.</p>
+                                    <p>
+                                        Stylish spaces. Incredible value.</p>
+
+                                </div>
+                            </a>
+                        </div>
+
+
+
+
+
+                        <div class="brands-carousel-slide">
+                            <a href='http://www.metricon.com.au/brands/sydney-region/home-solution' class='brand-tile brand-tile--homesolutions' target='_self'>
+                                <div class="brand-tile-img">
+                                    <div class="js-deferred-img" data-src='http://images.metricon.com.au/Metricon/media/metricon/brands/brand%20carousel/HomeSolution-Background-Image_466x350.jpg?width=466&amp;height=350&amp;ext=.jpg' data-alt='Home Solution'></div>
+                                </div>
+                                <h2 class="brand-tile-logo">
+                                    <picture>
+                                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                                        <source srcset='http://images.metricon.com.au/Metricon/media/metricon/brands/logos/mt-sbrand-logo-homesolutions.svg?ext=.svg' type="image/svg+xml">
+                                        <!--[if IE 9]></video><![endif]-->
+                                        <img srcset='http://images.metricon.com.au/Metricon/media/metricon/brands/logos/mt-sbrand-logo-homesolutions.png?width=440&amp;height=140&amp;ext=.png' alt='Home Solution'>
+                                    </picture>
+                                </h2>
+                                <div class="brand-tile-text">
+                                    <p>
+                                        <strong>Easy. Fast. Affordable.</strong></p>
+
+                                </div>
+                            </a>
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="pager"></div>
+                </div>
+            </section>
+            <!-- / brands-carousel -->
+
+
+            <div class="panel features-panel">
+                <div class="features-panel-content">
+
+                    <a href='http://www.metricon.com.au/new-home-designs' class="features-panel-tile features-panel-tile--a-2" target='_self'>
+
+
+
+
+
+                        <div class="features-panel-tile-img">
+                            <div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/auto-feature-panels/__thumbnails/SydoctLincoln_Facade.jpg_700_400.jpg 700w,http://images.metricon.com.au/Metricon/media/metricon/brands/auto-feature-panels/__thumbnails/SydoctLincoln_Facade.jpg_350_320.jpg 350w" data-sizes="(min-width: 480px) 50vw, 100vw" data-alt="Home Designs" class="js-deferred-img" ></div>
+                        </div>
+                        <div class="features-panel-tile-content">
+                            <h2>
+
+                                <em>
+                                    Featured
+                                </em>
+
+                                Home Designs
+                            </h2>
+                            <p>See the latest in home designs and realise your potential.</p>
+
+
+                        </div>
+
+
+                    </a>
+
+
+
+
+
+
+
+                    <a href='http://www.metricon.com.au/home-advisor/starter-kits/sydney-region/knock-down-rebuild' class="features-panel-tile features-panel-tile--a-2" target='_self'>
+
+
+
+
+
+                        <div class="features-panel-tile-img">
+                            <div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/auto-feature-panels/__thumbnails/SydoctLaguna_Outdoor.jpg_700_400.jpg 700w,http://images.metricon.com.au/Metricon/media/metricon/brands/auto-feature-panels/__thumbnails/SydoctLaguna_Outdoor.jpg_350_320.jpg 350w" data-sizes="(min-width: 480px) 50vw, 100vw" data-alt="Knockdown Rebuild" class="js-deferred-img" ></div>
+                        </div>
+                        <div class="features-panel-tile-content">
+                            <h2>
+
+                                Knockdown Rebuild
+                            </h2>
+                            <p>Love where you live, but not your home? Talk to the specialists.</p>
+
+
+                        </div>
+
+
+                    </a>
+
+
+
+
+
+
+
+
+                    <a href='http://www.metricon.com.au/get-inspired/sydney-region/studio-m' class='features-panel-tile features-panel-tile--b-2' target='_self'>
+
+                        <div class="features-panel-tile-img">
+                            <div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/auto-feature-panels/__thumbnails/Feature-Panel-Large-(top-row)-700-x-320_StudioM.jpg_700_320.jpg 700w,http://images.metricon.com.au/Metricon/media/metricon/brands/auto-feature-panels/__thumbnails/Feature-Panel-Large-(top-row)-700-x-320_StudioM.jpg_350_320.jpg 350w" data-sizes="(min-width: 1024px) 50vw, 100vw" data-alt="Experience Studio M" class="js-deferred-img" ></div>
+                        </div>
+                        <div class="features-panel-tile-content">
+                            <h2>Experience Studio M</h2>
+                            <p>Experience Studio M. Create a home that is uniquely yours.  </p>
+
+                        </div>
+
+                    </a>
+
+
+
+
+
+
+
+                    <a href='http://www.metricon.com.au/home-and-land' class='features-panel-tile features-panel-tile--b-1' target='_self'>
+
+                        <div class="features-panel-tile-img">
+                            <div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/auto-feature-panels/__thumbnails/SydoctElysian_Facade.jpg_350_320.jpg 350w" data-sizes="(min-width: 1024px) 25vw, (min-width: 480px) 50vw, 100vw" data-alt="Home &amp; Land" class="js-deferred-img" ></div>
+                        </div>
+                        <div class="features-panel-tile-content">
+                            <h2>Home & Land</h2>
+                            <p>Find your perfect home and land match.</p>
+
+                        </div>
+
+                    </a>
+
+
+
+
+
+
+
+                    <a href='http://www.metricon.com.au/display-homes' class='features-panel-tile features-panel-tile--b-1' target='_self'>
+
+                        <div class="features-panel-tile-img">
+                            <div data-srcset="http://images.metricon.com.au/Metricon/media/metricon/brands/auto-feature-panels/__thumbnails/SydoctVaucluse_Facade.jpg_350_320.jpg 350w" data-sizes="(min-width: 1024px) 25vw, (min-width: 480px) 50vw, 100vw" data-alt="Display Homes" class="js-deferred-img" ></div>
+                        </div>
+                        <div class="features-panel-tile-content">
+                            <h2>Display Homes</h2>
+                            <p>Visit a display home today and experience the Metricon difference.</p>
+
+                        </div>
+
+                    </a>
+
+
+
+
+
+
+
+                </div>
+            </div>
+
+
+
+
+            <div id="home-designs" class="home-designs panel panel-dustygrey" data-in-page-nav="Home Designs">
+                <div class="heading">
+                    <h2>Home Designs</h2>
+                </div>
+                <div class="container">
+                    <div class="selector">
+                        <ul class="selector-list">
+                            <li class="new"><a href="#">New</a></li>
+                            <li class="featured"><a href="#">Featured</a></li>
+                            <li class="popular"><a href="#">Most popular</a></li>
+                        </ul>
+                    </div>
+                    <div class="home-tiles tiles-carousel loading results">
+                        <div class="controls">
+                            <a href="#" id="home-designs-prev" class="prev assistive"><span class="icon-arrowleft"></span>Prev</a>
+                            <a href="#" id="home-designs-next" class="next assistive"><span class="icon-arrowright"></span>Next</a>
+                        </div>
+                        <div class="viewport"><!-- js generated content --></div>
+                        <div class="pager" id="home-designs-pager"></div>
+                    </div>
+                    <div class="all-home-designs"><a href="http://www.metricon.com.au/new-home-designs">All home designs <span class="icon-arrowright"></span></a></div>
+                </div>
+            </div>
+
+
+
+            <div id="get-advice" class="get-advice panel panel-blue" data-in-page-nav="Get Advice">
+                <div class="container">
+                    <div class="heading">
+                        <h2>Get Advice</h2>
+                        <p>Thinking about building a new home? The best place to start is right here.</p>
+                    </div>
+                    <div class="find-out-tiles">
+
+
+                        <div class="find-out-tile">
+                            <h3>Starter Kits</h3>
+                            <div class="content">
+                                <p>There's nothing quite like building a brand new home. Find out how to make the journey a rewarding one.</p>
+                                <a class="btn-a" href="http://www.metricon.com.au/home-advisor/starter-kits">Find Out More</a>
+                            </div>
+                        </div><div class="find-out-tile">
+                        <h3>Why Metricon?</h3>
+                        <div class="content">
+                            <p>More families across Australia choose Metricon to build with than anyone else. We can help you too.</p>
+                            <a class="btn-a" href="http://www.metricon.com.au/home-advisor/why-metricon">Find Out More</a>
+                        </div>
+                    </div><div class="find-out-tile">
+                        <h3>Tools & Resources</h3>
+                        <div class="content">
+                            <p>Every building project needs a toolkit. Equip yourself with these handy tools and let’s get started!</p>
+                            <a class="btn-a" href="http://www.metricon.com.au/home-advisor/tools-resources">Find Out More</a>
+                        </div>
+                    </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="discover-links" class="discover panel panel-grey" data-in-page-nav="Discover">
+                <div class="container">
+                    <div class="heading">
+                        <h2>Discover</h2>
+                        <p></p>
+                    </div>
+                    <div class="discover-tiles">
+
+                        <a href="http://www.metricon.com.au/home-advisor/tools-resources/sydney-region/publications" class="discover-tile">
+                            <div class="discover-image">
+                                <div class="js-deferred-img" data-src="http://images.metricon.com.au/Metricon/media/metricon/home/discover-links/product_book_generic.jpg?width=272&amp;height=188&amp;ext=.jpg" data-alt="Product Book"></div>
+                            </div>
+                            <div class="content">
+                                <h3>Product Book</h3>
+                                <p>There's a Metricon home to suit everyone. Get your copy of the latest Metricon product book.</p>
+                            </div>
+                        </a><a href="http://www.metricon.com.au/latest-offers" class="discover-tile">
+                        <div class="discover-image">
+                            <div class="js-deferred-img" data-src="http://images.metricon.com.au/Metricon/media/metricon/home/discover-links/latest-offers-promo.jpg?width=272&amp;height=188&amp;ext=.jpg" data-alt="Latest Offers"></div>
+                        </div>
+                        <div class="content">
+                            <h3>Latest Offers</h3>
+                            <p>Our latest offers are always a big deal! Find out how we deliver more value for less money.</p>
+                        </div>
+                    </a><a href="http://www.metricon.com.au/get-inspired/lookbook" class="discover-tile">
+                        <div class="discover-image">
+                            <div class="js-deferred-img" data-src="http://images.metricon.com.au/Metricon/media/metricon/home/discover-links/lookbook-promo-tile.jpg?width=272&amp;height=188&amp;ext=.jpg" data-alt="Lookbook"></div>
+                        </div>
+                        <div class="content">
+                            <h3>Lookbook</h3>
+                            <p>We have all the latest interior design ideas to make your house a beautiful home.</p>
+                        </div>
+                    </a><a href="http://www.metricon.com.au/get-inspired/sydney-region/studio-m" class="discover-tile">
+                        <div class="discover-image">
+                            <div class="js-deferred-img" data-src="http://images.metricon.com.au/Metricon/media/metricon/home/discover-links/studio-m-promo.jpg?width=272&amp;height=188&amp;ext=.jpg" data-alt="Studio M"></div>
+                        </div>
+                        <div class="content">
+                            <h3>Studio M</h3>
+                            <p>Find out about our state-of-the-art
+                                home selection centre.</p>
+                        </div>
+                    </a>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="testimonials-carousel" class="carousel-container home-testimonials panel panel-blue" data-in-page-nav="Testimonials">
+                <div class="carousel"><div class="carousel">
+
+                    <div class="testimonial">
+                        <div class="image">
+                            <div class="image-inner">
+                                <div class="js-deferred-img" data-src="http://images.metricon.com.au/Metricon/media/metricon/testimonials/testimonial-placeholder.jpg" data-alt="The staff in StudioM were extremely helpful. In fact, we found the whole Metricon team to be reliable, easy and knowledgeable." ></div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="content-inner" itemscope itemtype="http://schema.org/Review" itemref="metricon-card">
+                                <blockquote>
+                                    <p>The staff in StudioM were extremely helpful. In fact, we found the whole Metricon team to be reliable, easy and knowledgeable.</p>
+                                </blockquote>
+                                <p class="author">
+                                    <span itemprop="author">David & Michelle</span>
+                                </p>
+                                <a href="http://www.metricon.com.au/testimonials?open=1a06a98d-e2a4-4d7d-8a5d-47992a66ccec" class="btn-a">Read Testimonial</a>
+                            </div>
+                        </div>
+                    </div><div class="testimonial">
+                    <div class="image">
+                        <div class="image-inner">
+                            <div class="js-deferred-img" data-src="http://images.metricon.com.au/Metricon/media/metricon/testimonials/testimonial-placeholder.jpg" data-alt="Our home was completed well within the given timeframe even though we had some delays along the way, which shows how efficient and organised our site manager was in managing the trades." ></div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="content-inner" itemscope itemtype="http://schema.org/Review" itemref="metricon-card">
+                            <blockquote>
+                                <p>Our home was completed well within the given timeframe even though we had some delays along the way, which shows how efficient and organised our site manager was in managing the trades.</p>
+                            </blockquote>
+                            <p class="author">
+                                <span itemprop="author">Kevin & Jessica</span>
+                            </p>
+                            <a href="http://www.metricon.com.au/testimonials?open=cbf1fd84-4677-481f-9912-c867159e27d2" class="btn-a">Read Testimonial</a>
+                        </div>
+                    </div>
+                </div><div class="testimonial">
+                    <div class="image">
+                        <div class="image-inner">
+                            <div class="js-deferred-img" data-src="http://images.metricon.com.au/Metricon/media/metricon/testimonials/testimonial-hero-tony-and-rae.jpg?width=1400&amp;height=467&amp;ext=.jpg" data-alt="Tony and Rae say that Metricon made their dream a reality." ></div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="content-inner" itemscope itemtype="http://schema.org/Review" itemref="metricon-card">
+                            <blockquote>
+                                <p>Tony and Rae say that Metricon made their dream a reality.</p>
+                            </blockquote>
+                            <p class="author">
+                                <span itemprop="author">Tony & Rae</span>
+                            </p>
+                            <a href="http://www.metricon.com.au/testimonials?open=e4cff4c3-24e4-4821-a92c-946dcb16eb91" class="btn-a">Read Testimonial</a>
+                        </div>
+                    </div>
+                </div><div class="testimonial">
+                    <div class="image">
+                        <div class="image-inner">
+                            <div class="js-deferred-img" data-src="http://images.metricon.com.au/Metricon/media/metricon/testimonials/testimonial-placeholder.jpg" data-alt="From the day we signed, Metricon have been nothing short of sensational." ></div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="content-inner" itemscope itemtype="http://schema.org/Review" itemref="metricon-card">
+                            <blockquote>
+                                <p>From the day we signed, Metricon have been nothing short of sensational.</p>
+                            </blockquote>
+                            <p class="author">
+                                <span itemprop="author">John & Sue</span>
+                            </p>
+                            <a href="http://www.metricon.com.au/testimonials?open=508bd95f-54b5-430d-8042-73e322cbaee0" class="btn-a">Read Testimonial</a>
+                        </div>
+                    </div>
+                </div><div class="testimonial">
+                    <div class="image">
+                        <div class="image-inner">
+                            <div class="js-deferred-img" data-src="http://images.metricon.com.au/Metricon/media/metricon/testimonials/testimonial-placeholder.jpg" data-alt="Thanks Metricon - the experience and process could not have been better." ></div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="content-inner" itemscope itemtype="http://schema.org/Review" itemref="metricon-card">
+                            <blockquote>
+                                <p>Thanks Metricon - the experience and process could not have been better.</p>
+                            </blockquote>
+                            <p class="author">
+                                <span itemprop="author">Tony & Dayl</span>
+                            </p>
+                            <a href="http://www.metricon.com.au/testimonials?open=3f00b35b-ee60-462d-a6b9-7d55af079f19" class="btn-a">Read Testimonial</a>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+                </div>
+                <div class="carousel-paging"></div>
+            </div>
+
+            <div class="panel panel-white panel-content">
+
+                <div class="container">
+
+                    <div class="heading">
+                        <h1>AUSTRALIA's LEADING HOME BUILDER - LOVE WHERE YOU LIVE!
+                        </h1><p>
+                        With nearly 40 years as one of Australia&rsquo;s leading and most trusted new home builders, we&rsquo;ll help you with building your own home, house and land packages, home finance and design inspiration. Find our display homes in leading housing developments across Australia.</p>
+                        <p>
+                            Ready to start your own home building journey with one of Australia&#39;s leading home builders? To find somewhere you&rsquo;ll love to live? Browse our range of award winning contemporary home designs.</p>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+        <footer id="footer" class="footer">
+            <div class="social-bar">
+                <div class="container"><div id="p_lt_ctl10_CustomNewsletterSubscription_pnlSubscription" class="Subscription" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;p_lt_ctl10_CustomNewsletterSubscription_btnSubmit&#39;)">
+
+
+
+
+
+                    <div class="cit-news-sub">
+
+
+
+                        <div class="cit-news-sub-form">
+                            <fieldset>
+                                <legend>Sign up for the latest offers, news and tips</legend>
+
+                                <input name="p$lt$ctl10$CustomNewsletterSubscription$txtEmail" type="text" maxlength="400" id="p_lt_ctl10_CustomNewsletterSubscription_txtEmail" class="SubscriptionTextbox" placeholder="Your email address" />
+                                <input type="submit" name="p$lt$ctl10$CustomNewsletterSubscription$btnSubmit" value="Submit" id="p_lt_ctl10_CustomNewsletterSubscription_btnSubmit" class="cit-news-sub-btn" />
+
+                            </fieldset>
+                        </div>
+                    </div>
+
+                </div>
+                    <div class="share">
+                        <p>Talk to us on 1300 786 773</p>
+                        <ul class="icons">
+                            <li><a href="https://twitter.com/metriconhomes" class="assistive" target="_blank"><span class="icon-twitter"></span>Twitter</a></li>
+                            <li><a href="https://www.facebook.com/metricon" class="assistive" target="_blank"><span class="icon-facebook"></span>Facebook</a></li>
+                            <li><a href="http://www.youtube.com/user/metriconhomes" class="assistive" target="_blank"><span class="icon-youtube"></span>Youtube</a></li>
+                            <li><a href="https://plus.google.com/+metricon/posts" class="assistive" target="_blank"><span class="icon-googleplus"></span>Google+</a></li>
+                            <li><a href="https://www.pinterest.com/metriconhomes/" class="assistive" target="_blank"><span class="icon-pinterest-alt"></span>Pinterest</a></li>
+                            <li><a href="https://instagram.com/metriconhomes/"class="assistive" target="_blank"><span class="icon-instagram"></span>Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="min-width-768">
+                <div class="container">
+                    <div class="links-bar">
+                        <div class="links-col">
+                            <ul class="links-list">
+
+                                <li class="header">Find a home design</li>
+
+
+
+
+
+                                <li>
+                                    <a href="http://www.metricon.com.au/new-home-designs">Home Designs</a>
+                                </li>
+
+
+
+
+                                <li>
+                                    <a href="http://www.metricon.com.au/new-home-designs/melbourne">Melbourne</a>
+                                </li>
+
+
+
+
+                                <li>
+                                    <a href="http://www.metricon.com.au/new-home-designs/regional-vic">Regional Victoria</a>
+                                </li>
+
+
+
+
+                                <li>
+                                    <a href="http://www.metricon.com.au/new-home-designs/sydney-region">Sydney</a>
+                                </li>
+
+
+
+
+                                <li>
+                                    <a href="http://www.metricon.com.au/new-home-designs/southern-nsw">Southern NSW</a>
+                                </li>
+
+
+
+
+                                <li>
+                                    <a href="http://www.metricon.com.au/new-home-designs/northern-nsw">Northern NSW</a>
+                                </li>
+
+
+
+
+                                <li>
+                                    <a href="http://www.metricon.com.au/new-home-designs/qld">Queensland</a>
+                                </li>
+
+
+
+
+                                <li>
+                                    <a href="http://www.metricon.com.au/new-home-designs/sa">South Australia</a>
+                                </li>
+
+
+
+                            </ul>
+                        </div><div class="links-col">
+                        <ul class="links-list">
+
+                            <li class="header">Home & land</li>
+
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-and-land">Find a home & land package</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-and-land/melbourne">Melbourne</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-and-land/regional-vic">Regional Victoria</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-and-land/sydney-region">Sydney</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-and-land/northern-nsw">Northern NSW</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-and-land/southern-nsw">Southern NSW</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-and-land/qld">Queensland</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-and-land/sa">South Australia</a>
+                            </li>
+
+
+
+                        </ul>
+                    </div><div class="links-col">
+                        <ul class="links-list">
+
+                            <li class="header">Display homes</li>
+
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/display-homes">Find a display home</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/display-homes/melbourne">Melbourne</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/display-homes/regional-vic">Regional Victoria</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/display-homes/sydney-region">Sydney</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/display-homes/northern-nsw">Northern NSW</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/display-homes/southern-nsw">Southern NSW</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/display-homes/qld">Queensland</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/display-homes/sa">South Australia</a>
+                            </li>
+
+
+
+                        </ul>
+                    </div><div class="links-col">
+                        <ul class="links-list">
+
+                            <li class="header">Inspiration</li>
+
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/get-inspired/lookbook">Lookbook</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="https://www.metricon.com.au/my-home">My Home</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/get-inspired/gallery">Gallery</a>
+                            </li>
+
+
+
+                        </ul>
+                    </div><div class="links-col">
+                        <ul class="links-list">
+
+                            <li class="header">Home advisor</li>
+
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-advisor/starter-kits">Starter kits</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-advisor/tools-resources">Tools & resources</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-advisor/faqs">FAQs</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-advisor/why-metricon">Why Metricon?</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/testimonials">Customer Testimonials</a>
+                            </li>
+
+
+
+                        </ul>
+                    </div><div class="links-col">
+                        <ul class="links-list">
+
+                            <li class="header">About Us</li>
+
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/about-us/our-design-philosophy">Our Design Philosophy</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/about-us/community-giving">Community Giving</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/about-us/news-media">News & Media</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/where-we-build">Where We Build</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/careers">Careers</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="https://www.metricon.com.au/contact-us/opportunities-for-trades">Trade Opportunities</a>
+                            </li>
+
+
+
+                        </ul>
+                    </div><div class="links-col">
+                        <ul class="links-list">
+
+                            <li class="header">Quicklinks</li>
+
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/latest-offers">Latest Offers</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/home-truths">Blog</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="https://www.metricon.com.au/login">Login</a>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="http://www.metricon.com.au/preference-centre">Manage My Newsletter Preference</a>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+
+                        <div class="links-col">
+                            <ul class="links-list">
+                                <li class="header">Build In:</li>
+                                <li>
+                                    <select title="Select your building region" name="building-region" class="select-region-box">
+                                        <option value="1bf1de00-de5d-4875-b768-f18733aed4fc" data-short-name="QLD">Queensland</option>
+                                        <option value="af93f135-0b87-4070-ae67-fcef1fc6a641" data-short-name="SA">South Australia</option>
+
+                                        <optgroup label="New South Wales">
+                                            <option value="dadaafa9-99bf-4ebd-82f1-4fe67fe0dcc6" data-short-name="SYD">Sydney</option>
+                                            <option value="f325fca6-7f67-449b-8bf1-3a201ac23715" data-short-name="S.NSW">Southern NSW</option>
+                                            <option value="deab8294-46e7-490d-8582-afe120439997" data-short-name="N.NSW">Northern NSW</option>
+                                        </optgroup>
+
+                                        <optgroup label="Victoria">
+                                            <option value="4192cf27-dd23-4241-9612-e15261f08704" data-short-name="MEL">Melbourne</option>
+                                            <option value="3e14b912-9f1d-4c82-87cf-0b74c11c21af" data-short-name="R.VIC">Regional VIC</option>
+                                        </optgroup>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="last-bar">
+                <div class="container">
+                    <div class="last-bar-inner"><ul class="links">
+                        <li><a href="http://my.metricon.com.au/ ">MyMetricon</a></li><li><a href="https://www.metricon.com.au/contact-us">Contact Us</a></li><li><a href="http://www.metricon.com.au/careers">Careers</a></li><li><a href="https://www.metricon.com.au/contact-us/feedback">Feedback</a></li><li><a href="http://www.metricon.com.au/privacy-policy">Privacy Policy</a></li><li><a href="http://www.metricon.com.au/sitemap">Sitemap</a></li><li><a href="http://www.metricon.com.au/terms-conditions">Terms & Conditions</a></li>
+
+                    </ul>
+
+
+                        <div class="copyright">
+                            &copy; 2015 All Rights Reserved.
+  <span id="metricon-card" itemscope itemtype="http://schema.org/HomeAndConstructionBusiness" itemprop="branchOf itemReviewed">
+      <span itemprop="name">Metricon Homes Pty Ltd.</span>
+      <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+          <span itemprop="streetAddress">501 Blackburn Road</span>,
+      <span itemprop="addressLocality">Mt Waverley</span>
+          <span itemprop="addressRegion">VIC</span>
+          <span itemprop="postalCode">3149</span>
+      </span>
+      <meta itemprop="telephone" content="1300 786 773">
+  </span>
+                            <p class="disclaimer disclaimer-text">
+                                Photographs on this web page may depict fixtures, finishes and features not supplied by Metricon such as landscaping and swimming pools. Accordingly, any prices on this web page do not include the supply of any of those items. For detailed home pricing, please talk to a sales consultant.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="transparent-overlay"></div>
+        <a href="#" class="btn-top"></a>
+        <div id="login-signup" class="login-popup">
+
+            <div class="signin">
+                <fieldset class="content-form">
+                    <legend>Sign In</legend>
+                    <div id="p_lt_ctl13_Custom_LogonForm_UpdatePanelLogin">
+
+
+                        <div id="p_lt_ctl13_Custom_LogonForm_Login1_pnlLogin" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;p_lt_ctl13_Custom_LogonForm_Login1_LoginButton&#39;)">
+
+
+                            <div class="form-field" style="margin-top: 0">
+                                <label for="p_lt_ctl13_Custom_LogonForm_Login1_UserName" id="p_lt_ctl13_Custom_LogonForm_Login1_lblUserName">Username: </label>
+                                <div class="EditingFormControlNestedControl">
+                                    <input name="p$lt$ctl13$Custom_LogonForm$Login1$UserName" type="text" maxlength="100" id="p_lt_ctl13_Custom_LogonForm_Login1_UserName" title="Enter your username" placeholder="Username" />
+                                </div>
+                                <span class="CMSValidator"><span id="p_lt_ctl13_Custom_LogonForm_Login1_rfvUserNameRequired" title="User name is required." style="visibility:hidden;">Please enter your username.</span></span>
+                            </div>
+                            <div class="form-field">
+                                <label for="p_lt_ctl13_Custom_LogonForm_Login1_Password" id="p_lt_ctl13_Custom_LogonForm_Login1_lblPassword">Password:</label>
+                                <div class="EditingFormControlNestedControl">
+                                    <input name="p$lt$ctl13$Custom_LogonForm$Login1$Password" type="password" maxlength="110" id="p_lt_ctl13_Custom_LogonForm_Login1_Password" title="Enter your password" placeholder="Password" />
+                                </div>
+                            </div>
+
+
+                            <div class="form-buttons">
+                                <input type="submit" name="p$lt$ctl13$Custom_LogonForm$Login1$LoginButton" value="Sign In" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;p$lt$ctl13$Custom_LogonForm$Login1$LoginButton&quot;, &quot;&quot;, true, &quot;p_lt_ctl13_Custom_LogonForm_Logon&quot;, &quot;&quot;, false, false))" id="p_lt_ctl13_Custom_LogonForm_Login1_LoginButton" class="FormButton" />
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-footer">
+                        <div id="p_lt_ctl13_Custom_LogonForm_pnlUpdatePasswordRetrievalLink">
+
+                            <a id="p_lt_ctl13_Custom_LogonForm_lnkPasswdRetrieval" class="forgot" href="javascript:__doPostBack(&#39;p$lt$ctl13$Custom_LogonForm$lnkPasswdRetrieval&#39;,&#39;&#39;)">Forgot password?</a>
+
+                        </div>
+
+                        <div id="p_lt_ctl13_Custom_LogonForm_pnlUpdatePasswordRetrieval">
+
+
+
+                        </div>
+
+                        <div class="divider">or</div>
+
+
+
+
+                        <div class="fb-login-button"  data-max-rows="1" data-size="xlarge"  data-show-faces="false" data-auto-logout-link="false" data-onlogin="Facebook_login();">Login with facebook</div>
+
+                    </div>
+
+
+
+
+                </fieldset>
+            </div>
+
+
+
+            <div class="join">
+                <h2>Join</h2>
+                <p>Register now and get access to these exclusive features:</p>
+                <ul>
+                    <li>- Save your favourites and LookBook boards</li>
+                    <li>- Customise your favourite home designs</li>
+                    <li>- Get unlimited favourites</li>
+                    <li>- Easily manage your subscription preferences.</li>
+                </ul>
+                <button onclick="window.location.href='/Login?ReturnURL='+window.location.pathname; return false;">Join</button>
+            </div>
+        </div>        <div id="build-region" class="regions-popup">
+        <div class="heading">
+            <h2>
+                Where would you<br>like to build?
+                <a href="#build-tip" class="info">
+                    <span class="icon-info"></span>
+                </a>
+            </h2>
+            <div id="build-tip" class="build-region-popup" hidden>
+                <p>We will tailor your online experience to show homes, displays, packages and other relevant content based on the region in which you intend to build.</p>
+                <a href="#" class="build-region-popup-close">
+                    <span class="icon-cross"></span>
+                    <span class="screen-reader-text">Close</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="fields filter-root">
+            <!-- js generated content -->
+        </div>
+    </div>
+
+        <div id="confirm-region" class="regions-popup">
+            <div class="heading">
+                <h2>This page is not in<br>your build region</h2>
+                <p>
+                    Your build region:
+                    <strong class="build-region-name"></strong>
+                </p>
+                <p>
+                    Region of the page you are trying to visit:
+                    <strong class="viewing-region-name"></strong>
+                </p>
+            </div>
+            <div class="ask">
+                What would you like to do?
+            </div>
+            <ul class="choices">
+                <li>
+                    <h3>Take me to this page</h3>
+                    <p>My build region will be changed.</p>
+                    <button type="button" class="btn-b btn-confirm">Select</button>
+                </li>
+                <li>
+                    <h3>Don’t take me to this page</h3>
+                    <p>My build region will not be changed.</p>
+                    <button type="button" class="btn-b btn-reject">Select</button>
+                </li>
+            </ul>
+        </div>
+        <div id="floorplan-design-options" class="design-options"><!-- js generated content --></div>
+
+        <div id="gallery-lightbox" class="gallery-lightbox-content"><!-- js generated content --></div>
+        <!-- MY LOOKBOOK POPUPS -->
+        <div id="my-lookbook-edit-board" class="my-lookbook-popup">
+            <div class="heading">
+                <h2>Edit board</h2>
+            </div>
+            <div class="content">
+                <div class="FormPanel">
+                    <input type="hidden" name="lookbookBoardGUID" value="" >
+                    <div class="form-field">
+                        <label>Name:</label>
+                        <div class="EditingFormControlNestedControl">
+                            <input type="text" maxlength="100" class="TextBoxField" value="" name="boardName">
+                        </div>
+                    </div>
+                    <div class="form-field edit-image">
+                        <label>Image:</label>
+                        <div class="EditingFormControlNestedControl">
+                            <select name="imageURL" class="custom-single">
+                                <option value="">Select Image</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="FormButton">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <a href="#" class="delete"><span class="icon-trash"></span>Delete This Board</a>
+            </div>
+        </div>
+
+        <div id="my-lookbook-add-to-lookbook" class="my-lookbook-popup">
+            <div class="heading">
+                <h2>Add to My Lookbook</h2>
+            </div>
+            <div class="content">
+                <div class="FormPanel">
+                    <div class="form-field">
+                        <label>Add ‘<span class="item-name"></span>’ to:</label>
+                        <div class="EditingFormControlNestedControl">
+                            <select class="custom add-to-new-board" disabled>
+                                <option value="lookbook-board-guid">My Lookbook board</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="FormButton">Add Now</button>
+                    </div>
+                </div>
+                <div class="login-signin">
+                    <p>Create a My Lookbook inspirational board:</p>
+                    <p class="popup-buttons">
+                        <a href="#login-signup" class="btn-e fancybox">Log in</a>
+                        <a href="#login-signup" class="btn-b fancybox">Sign up</a>
+                    </p>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <a href="#" class="cancel">Cancel</a>
+            </div>
+        </div>
+
+        <div id="my-lookbook-add-to-lookbook-done" class="my-lookbook-popup">
+            <div class="heading">
+                <h2>Add to My Lookbook</h2>
+            </div>
+            <div class="content">
+                <p class="success"><span class="icon-tick"></span>‘<span class="item-name"></span>’ added to Lookbook ‘<span class="board-name"></span>’</p>
+                <h3>Sign up for more Lookbook Features:</h3>
+                <ul>
+                    <li>Lookbook boards are backed-up and accessible from any device.</li>
+                    <li>Manage unlimited Lookbook boards.</li>
+                </ul>
+                <p class="popup-buttons">
+                    <a href="#" class="btn-e board-url">View lookbook</a>
+                    <a href="#login-signup" class="btn-b fancybox">Sign up</a>
+                </p>
+            </div>
+        </div>
+
+        <div id="my-lookbook-add-to-lookbook-logged" class="my-lookbook-popup">
+            <div class="heading">
+                <h2>Add to My Lookbook</h2>
+            </div>
+            <div class="content">
+                <div class="FormPanel">
+                    <div class="form-field">
+                        <label>Add ‘<span class="item-name"></span>’ to:</label>
+                        <div class="EditingFormControlNestedControl">
+                            <select class="custom add-to-new-board"></select>
+                        </div>
+                        <div class="EditingFormControlNestedControl new">
+                            <input type="text" maxlength="100" class="TextBoxField" value="" name="boardName" placeholder="Input name of new board">
+                            <button type="button" class="btn btn-e">Create</button>
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="FormButton">Add Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <a href="#" class="cancel">Cancel</a>
+            </div>
+        </div>
+
+        <div id="my-lookbook-add-to-lookbook-logged-done" class="my-lookbook-popup">
+            <div class="heading">
+                <h2>Add to My Lookbook</h2>
+            </div>
+            <div class="content">
+                <p class="success"><span class="icon-tick"></span>‘<span class="item-name"></span>’ added to Lookbook ‘<span class="board-name"></span>’</p>
+                <p>
+                    <a href="#" class="btn-e board-url">Go to lookbook</a>
+                </p>
+            </div>
+        </div>
+
+        <div id="my-lookbook-add-to-favourities-done" class="my-lookbook-popup">
+            <div class="heading">
+                <h2>Added to favourites</h2>
+            </div>
+            <div class="content">
+                <p class="success"><span class="icon-tick"></span>‘<span class="item-name"></span>’ has been favourited!</p>
+                <h3>Sign up for more features:</h3>
+                <ul>
+                    <li>Favourites are backed-up and accessible from any device.</li>
+                    <li>Customise your favourite designs, including favourite Facades, Floor plans and more!</li>
+                    <li>Unlimited favourites - unregistered users only get up to 4 favourites stored.</li>
+                </ul>
+                <p class="popup-buttons">
+                    <a href="#" class="btn-e favourites-link">My favourites</a>
+                    <a href="#login-signup" class="btn-b fancybox">Sign up</a>
+                </p>
+            </div>
+            <div class="popup-footer">
+                <a href="#" class="cancel">Close</a>
+            </div>
+        </div>
+
+        <div id="my-lookbook-add-to-favourities-not-done" class="my-lookbook-popup">
+            <div class="heading">
+                <h2>Error</h2>
+            </div>
+            <div class="content">
+                <p class="failure">We’re sorry, ‘<span class="item-name"></span>’ was not added to your favourites.</p>
+                <div class="message"></div>
+            </div>
+            <div class="popup-footer">
+                <a href="#" class="cancel">Close</a>
+            </div>
+        </div>
+
+        <div id="my-lookbook-add-to-favourities-logged-done" class="my-lookbook-popup">
+            <div class="heading">
+                <h2>Added to favourites</h2>
+            </div>
+            <div class="content">
+                <p class="success"><span class="icon-tick"></span>‘<span class="item-name"></span>’ has been favourited!</p>
+                <div class="customize-favourite-wrapper">
+                    <h3>Customise Favourite Design:</h3>
+                    <div class="FormPanel">
+                        <div class="customize-favourite">
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="FormButton">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <a href="#" class="cancel">Close</a>
+            </div>
+        </div>
+
+        <div id="my-lookbook-edit-favourite" class="my-lookbook-popup">
+            <div class="heading">
+                <h2>Edit favourite</h2>
+            </div>
+            <div class="content">
+                <div class="customize-favourite-wrapper">
+                    <h3>Customise ‘<span class="item-name"></span>’ Favourite Design:</h3>
+                    <div class="FormPanel">
+                        <div class="customize-favourite">
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="FormButton">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <a href="#" class="cancel">Close</a>
+            </div>
+        </div>
+
+        <div id="maintenance-popup" class="maintenance-popup" data-display="false">
+            <div class="content">
+                <p>Due to an unscheduled outage tonight, our website will be unavailable for up to 15 minutes between 9pm and 12am.</p>
+
+                <p>If you experience an interruption, we thank you for your patience and encourage you to check back shortly.</p>
+            </div>
+            <div class="popup-footer">
+                <a href="#" class="cancel">Close</a>
+            </div>
+        </div>
+
+
+
+
+        <script id='brand-overlay-designer' type="text/x-handlebars-template">
+            <div class='brand-overlay brand-overlay--designer brand-tile--designer'>
+                <div class="brand-overlay-title">
+                    <picture>
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset='http://images.metricon.com.au/Metricon/media/metricon/brands/visual-filter/svg/mt-sbrand-logo-designer-basic.svg?ext=.svg' type="image/svg+xml">
+                        <!--[if IE 9]></video><![endif]-->
+                        <img srcset='http://images.metricon.com.au/Metricon/media/metricon/brands/visual-filter/png/mt-sbrand-logo-designer-basic.png?width=220&amp;height=70&amp;ext=.png' alt='designer | Metricon'>
+                    </picture>
+                </div>
+                <div class="brand-overlay-text">
+                    <p>Our Designer range offers
+                        <strong>Boutique Designs</strong></p>
+                </div>
+            </div>
+        </script>
+
+
+
+        <script id='brand-overlay-metro' type="text/x-handlebars-template">
+            <div class='brand-overlay brand-overlay--metro brand-tile--metro'>
+                <div class="brand-overlay-title">
+                    <picture>
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset='http://images.metricon.com.au/Metricon/media/metricon/brands/logos/metro-logo.svg?ext=.svg' type="image/svg+xml">
+                        <!--[if IE 9]></video><![endif]-->
+                        <img srcset='http://images.metricon.com.au/Metricon/media/metricon/brands/logos/METRO-LOGO.png?width=440&amp;height=140&amp;ext=.png' alt='metro | Metricon'>
+                    </picture>
+                </div>
+                <div class="brand-overlay-text">
+                    <p>Find your dream home
+                        <strong>SMART DESIGNS</strong></p>
+                </div>
+            </div>
+        </script>
+
+
+
+        <script id='brand-overlay-homesolution' type="text/x-handlebars-template">
+            <div class='brand-overlay brand-overlay--homesolution brand-tile--homesolutions'>
+                <div class="brand-overlay-title">
+                    <picture>
+                        <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        <source srcset='http://images.metricon.com.au/Metricon/media/metricon/brands/visual-filter/svg/mt-sbrand-logo-homesolutions.svg?ext=.svg' type="image/svg+xml">
+                        <!--[if IE 9]></video><![endif]-->
+                        <img srcset='http://images.metricon.com.au/Metricon/media/metricon/brands/visual-filter/png/mt-sbrand-logo-homesolutions.png?width=440&amp;height=140&amp;ext=.png' alt='homesolution | Metricon'>
+                    </picture>
+                </div>
+                <div class="brand-overlay-text">
+                    <p>Low deposit? Solved.
+                        <strong>$2K^ on your way</strong></p>
+                </div>
+            </div>
+        </script>
+
+
+
+    </div>
+
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var Page_Validators =  new Array(document.getElementById("p_lt_ctl13_Custom_LogonForm_Login1_rfvUserNameRequired"));
+        //]]>
+    </script>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var p_lt_ctl13_Custom_LogonForm_Login1_rfvUserNameRequired = document.all ? document.all["p_lt_ctl13_Custom_LogonForm_Login1_rfvUserNameRequired"] : document.getElementById("p_lt_ctl13_Custom_LogonForm_Login1_rfvUserNameRequired");
+        p_lt_ctl13_Custom_LogonForm_Login1_rfvUserNameRequired.controltovalidate = "p_lt_ctl13_Custom_LogonForm_Login1_UserName";
+        p_lt_ctl13_Custom_LogonForm_Login1_rfvUserNameRequired.validationGroup = "p_lt_ctl13_Custom_LogonForm_Logon";
+        p_lt_ctl13_Custom_LogonForm_Login1_rfvUserNameRequired.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+        p_lt_ctl13_Custom_LogonForm_Login1_rfvUserNameRequired.initialvalue = "";
+        //]]>
+    </script>
+
+
+    <script type="text/javascript">
+        //<![CDATA[
+        if (typeof(Sys.Browser.WebKit) == 'undefined') {
+            Sys.Browser.WebKit = {};
+        }
+        if (navigator.userAgent.indexOf('WebKit/') > -1) {
+            Sys.Browser.agent = Sys.Browser.WebKit;
+            Sys.Browser.version = parseFloat(navigator.userAgent.match(/WebKit\/(\d+(\.\d+)?)/)[1]);
+            Sys.Browser.name = 'WebKit';
+        }
+        //]]>
+    </script>
+    <script type="text/javascript">
+        //<![CDATA[
+        (function() {var fn = function() {$get("manScript_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();
+        WebForm_InitCallback();
+        var Page_ValidationActive = false;
+        if (typeof(ValidatorOnLoad) == "function") {
+            ValidatorOnLoad();
+        }
+
+        function ValidatorOnSubmit() {
+            if (Page_ValidationActive) {
+                return ValidatorCommonOnSubmit();
+            }
+            else {
+                return true;
+            }
+        }
+
+        document.getElementById('p_lt_ctl13_Custom_LogonForm_Login1_rfvUserNameRequired').dispose = function() {
+            Array.remove(Page_Validators, document.getElementById('p_lt_ctl13_Custom_LogonForm_Login1_rfvUserNameRequired'));
+        }
+        //]]>
+    </script>
+    <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTIxMDU4NzU3NjAPZBYEAgEPFgIeB1Zpc2libGVnZAIDEGRkFgICBQ9kFgJmD2QWAmYPZBYEAgkPZBYCZg9kFgICAg9kFgJmD2QWAmYPZBYCAgEPZBYCAgEPZBYIAgMPEGRkFgBkAgcPEGRkFgBkAgsPEGRkFgBkAg8PEGRkFgBkAgoPZBYCZg9kFgJmD2QWAgIJD2QWAmYPD2QWAh4LcGxhY2Vob2xkZXIFEllvdXIgZW1haWwgYWRkcmVzc2Rk2QVxvAYv4NsrKK/c7q7EbSMmMlNypiX3xft/sCIrc9E=" />
+    <script type="text/javascript">
+        //<![CDATA[
+        if (window.WebForm_InitCallback) {
+            __theFormPostData = '';
+            __theFormPostCollection = new Array();
+            window.WebForm_InitCallback();
+        }
+        //]]>
+    </script>
+</form>
+</body>
+</html>
