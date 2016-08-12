@@ -4,7 +4,6 @@
 
 
 var foo = "bar";
-
 function bar() {
     var foo = "baz";
 
