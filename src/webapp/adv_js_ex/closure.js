@@ -31,3 +31,29 @@ function bam(baz) { // baz still here has a reference to the function foo() whic
 }
 
 foo();
+
+// By definition this is not a closure because it doesn't return a function, and there's no function
+// being transported outside the scope.
+var foo1 = (function() {
+    var o = {bar: "bar"};
+
+    return {obj: o};
+
+})();
+
+console.log(foo1.obj.bar); // bar
+
+// classic  module pattern
+// 1) there must be an outer wrapping function that gets executed (normally an iife)
+// 2) one or more function calls that are being returned from the inner functions that has closure in the private scope.
+//      ex. the bar function inside foo has references to the o object.
+
+var foo2 = (function() {
+    var o = {bar: "bar"};
+
+    return { bar: function() {
+        console.log(o.bar);
+    }};
+})();
+
+foo2.bar();
