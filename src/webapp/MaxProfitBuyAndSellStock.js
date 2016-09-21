@@ -55,3 +55,18 @@ var x = computeMaxProfit(stockPrices);
 console.log("Max profit: ", x.maxProfit);
 console.log("Index where the min price is: ", x.minStockPriceIndex);
 console.log("Index where the max price is: ", x.maxStockPriceIndex);
+
+
+
+function testAsyncForLoop() {
+    for (var i = 0; i < 5; i++ ) {
+        (function(j) {
+            setTimeout(function () {
+                console.log("inside loop: " + j);
+            }, 1000);
+        })(i);
+    }
+    console.log("outside loop: ", i);
+}
+
+testAsyncForLoop()
