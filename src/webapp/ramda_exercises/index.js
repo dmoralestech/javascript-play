@@ -73,12 +73,16 @@ function createMovieDetailsTemplate(movie) {
   `;
 }
 
+// keep functions simple and small, make sure it only does one thing
+// it's better if functions return a value
+// try to isolate side-effects so it's easier to test
+// (?) is it better to put expressions inside an if-statement to another function?
 function createMovieElement(createMovieDetailsTemplate, createElement, movie) {
     const movieDetailTemplate = createMovieDetailsTemplate(movie);
     return createElement(movieDetailTemplate);
 }
 
-function createElement(template){
+function createElement(template) {
     const el = document.createElement('template');
     el.innerHTML = template;
     return el;
@@ -93,11 +97,9 @@ function removeElement(className) {
 }
 
 function addElementToBody(isElementOnPage, removeElement, el) {
-
     if (isElementOnPage('movie-detail')) {
         removeElement('movie-detail');
     }
-
     document.body.appendChild(el.content.firstElementChild);
     $('.movie-detail').animate({
         opacity: 1
