@@ -1,6 +1,9 @@
 const apiKey = require('./apiKey');
 const userMoviesService = require('./userMoviesService');
 const favoriteMovies = userMoviesService.loadSavedMovies();
+var R = require('ramda');
+
+
 
 function clearMovies() {
     document.getElementById('foundMovies').innerHTML = '';
