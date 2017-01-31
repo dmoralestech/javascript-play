@@ -13,7 +13,7 @@ function foo() {
 
     function baz() {
         /*
-         Here baz knows by lexical scope, ie it will find first in the current scope, if it doesn't find it,
+         Here baz knows bar by lexical scope, ie it will find first in the current scope, if it doesn't find it,
          it will look at the outer scope. In this case it's in the scope of foo().
          */
         console.log(bar);

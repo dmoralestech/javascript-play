@@ -18,14 +18,17 @@ function createElement(template) {
     return el;
 }
 
-function displayMovies(createMovieTemplate, createElement, createMovieTemplate, appendElementToParent, clearMovies, movies, totalResults) {
-    clearMovies();
+function createMoviesElements(createMovieTemplate, createElement, createMovieTemplate, appendElementToParent, movies, totalResults) {
     return movies
         .filter(movie => movie.poster_path !== null && movie.poster_path !== undefined)
         .map(createMovieTemplate)
-        .forEach(movie => {
-            appendElementToParent('foundMovies', createElement(template));
-        });
+        .map(createElement);
+}
+
+
+function createMovieNotFoundElement(createElement) {
+    const template = `<strong>I'm sorry, we could not found the movie you were looking for<strong>`;
+    return createElement(template);
 }
 
 function createMovieTemplate(movie) {
@@ -40,19 +43,14 @@ function createMovieTemplate(movie) {
         `;
 }
 
-function movieNotFound(clearMovies) {
-    clearMovies();
-    const template = `<strong>I'm sorry, we could not found the movie you were looking for<strong>`;
-    appendElementToParent('foundMovies', createElement(template));
-}
-
 function processSearchResponse(response) {
-    if (response.total_results > 0) {
-        displayMovies(createMovieTemplate, createElement, createMovieTemplate, appendElementToParent,
-            clearMovies, response.results, response.total_results);
-    } else {
-        movieNotFound(clearMovies);
-    }
+    clearMovies();
+    const elements = response.total_results > 0 ?
+        createMoviesElements(createMovieTemplate, createElement, createMovieTemplate, appendElementToParent,
+            response.results, response.total_results)
+        : [createMovieNotFoundElement(createElement)];
+    elements.forEach(el => appendElementToParent('foundMovies', el));
+
 }
 
 function createMovieDetailsTemplate(movie) {
@@ -110,12 +108,9 @@ function addElementToBody(isElementOnPage, removeElement, el) {
 }
 
 
-function displayGenres(id, genres) {
-    let genresList = '';
-    genres.forEach(genre => genresList += `<li>${genre.name}</li>`
-    )
-    ;
-    return genresList;
+function displayGenres(genres) {
+    return genres.map(genre => genresList += `<li>${genre.name}</li>`)
+        .join('');
 }
 
 function ratingsOptions(r) {
