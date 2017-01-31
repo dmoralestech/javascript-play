@@ -4,8 +4,8 @@ const favoriteMovies = userMoviesService.loadSavedMovies();
 var R = require('ramda');
 
 
-function clearMovies() {
-    document.getElementById('foundMovies').innerHTML = '';
+function clearElement(id) {
+    document.getElementById(id).innerHTML = '';
 }
 
 function appendElementToParent(parent, el) {
@@ -44,7 +44,7 @@ function createMovieTemplate(movie) {
 }
 
 function processSearchResponse(response) {
-    clearMovies();
+    clearElement('foundMovies');
     const elements = response.total_results > 0 ?
         createMoviesElements(createMovieTemplate, createElement, createMovieTemplate, appendElementToParent,
             response.results, response.total_results)
@@ -121,11 +121,17 @@ function ratingsOptions(r) {
     return ratings;
 }
 
-function displayFavoriteMovies() {
-    document.getElementById('favorites').innerHTML = '';
-    for (let movieId of Object.keys(favoriteMovies)) {
-        appendElement('favorites', `<li><span>${favoriteMovies[movieId].title}</span> <select class="movie-rating" data-movie-id="${movieId}">${ratingsOptions(favoriteMovies[movieId].rating)}</select> <a href="#" class="remove-favorite" data-movie-id="${movieId}">Remove</a></li>`)
-    }
+function displayFavoriteMovies(favorites) {
+    clearElement('favorites');
+
+    Object.keys(favorites)
+        .map(movieId => createFavoriteMovieElement(createElement, ratingsOption, favorites[movieId]))
+        .forEach(e => appendElementToParent('favorites', e));
+}
+
+function createFavoriteMovieElement(createElement, ratingsOption, movie) {
+    const template = `<li><span>${favoriteMovies[movieId].title}</span> <select class="movie-rating" data-movie-id="${movieId}">${ratingsOptions(favoriteMovies[movieId].rating)}</select> <a href="#" class="remove-favorite" data-movie-id="${movieId}">Remove</a></li>`;
+    return createElement(template);
 }
 
 $(document).on('click', '.movie img, .movie p', (e) => {
@@ -161,7 +167,7 @@ $(document).on('click', '.btn-favorite', function () {
         const title = $(this).data('movie-title');
         favoriteMovies[movieKey] = {title};
         userMoviesService.addFavorite(movieKey, title);
-        displayFavoriteMovies();
+        displayFavoriteMovies(loadService());
     }
     $(this).closest('div').animate({opacity: 0}, 300, function () {
         $(this).remove();
@@ -173,8 +179,8 @@ $(document).on('click', '.remove-favorite', function (e) {
     const movieId = $(this).data('movie-id');
     delete favoriteMovies[movieId];
     userMoviesService.removeFavorite(movieId);
-    displayFavoriteMovies();
-});
+    displayFavoriteMovies(loadService());
+})
 
 $(document).on('change', '.movie-rating', function () {
     const movieId = $(this).data('movie-id');
@@ -183,5 +189,5 @@ $(document).on('change', '.movie-rating', function () {
 });
 
 window.onload = function () {
-    displayFavoriteMovies();
+    displayFavoriteMovies(loadService());
 }
