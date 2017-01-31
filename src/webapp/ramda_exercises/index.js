@@ -14,11 +14,10 @@ function appendElement(parent, htmlText) {
 
 function displayMovies(movies, totalResults) {
     clearMovies();
-    movies.forEach(movie = > {
+    movies.forEach(movie => {
         if (movie.poster_path !== null && movie.poster_path !== undefined
-)
-    {
-        const template = `
+        ) {
+            const template = `
           <div class="movie" data-movie-id="${movie.id}">
             <p><strong>${movie.original_title}</strong></p>
             <img src="https://image.tmdb.org/t/p/w185${movie.poster_path}" />
@@ -27,9 +26,9 @@ function displayMovies(movies, totalResults) {
             </p>
           </div>
         `;
-        appendElement('foundMovies', template);
-    }
-})
+            appendElement('foundMovies', template);
+        }
+    })
     ;
 }
 
@@ -89,8 +88,8 @@ function processMovieDetailsResponse(movie) {
 
 function displayGenres(id, genres) {
     let genresList = '';
-    genres.forEach(genre = > genresList += `<li>${genre.name}</li>`
-)
+    genres.forEach(genre => genresList += `<li>${genre.name}</li>`
+    )
     ;
     return genresList;
 }
@@ -110,23 +109,23 @@ function displayFavoriteMovies() {
     }
 }
 
-$(document).on('click', '.movie img, .movie p', (e) = > {
+$(document).on('click', '.movie img, .movie p', (e) => {
     e.preventDefault();
-const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${$(e.target).closest('.movie').data('movie-id')}?api_key=${apiKey}`;
-$.getJSON(movieDetailsUrl, response = > {
-    processMovieDetailsResponse(response);
-})
-;
+    const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${$(e.target).closest('.movie').data('movie-id')}?api_key=${apiKey}`;
+    $.getJSON(movieDetailsUrl, response => {
+        processMovieDetailsResponse(response);
+    })
+    ;
 })
 ;
 
-$(document).on('click', 'button[type=submit]', (e) = > {
+$(document).on('click', 'button[type=submit]', (e) => {
     e.preventDefault();
-const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${$("#search").val()}`;
-$.getJSON(url, response = > {
-    processSearchResponse(response);
-})
-;
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${$("#search").val()}`;
+    $.getJSON(url, response => {
+        processSearchResponse(response);
+    })
+    ;
 })
 ;
 
