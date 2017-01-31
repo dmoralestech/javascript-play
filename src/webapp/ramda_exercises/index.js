@@ -4,7 +4,6 @@ const favoriteMovies = userMoviesService.loadSavedMovies();
 var R = require('ramda');
 
 
-
 function clearMovies() {
     document.getElementById('foundMovies').innerHTML = '';
 }
@@ -49,8 +48,8 @@ function processSearchResponse(response) {
     }
 }
 
-function processMovieDetailsResponse(movie) {
-    const movieDetailTemplate = `
+function createMovieDetailsTemplate(movie) {
+    return `
     <div class="movie-detail" data-movie-id="${movie.id}">
       <p><strong>${movie.original_title}</strong></p>
       <img src="https://image.tmdb.org/t/p/w185${movie.poster_path}" />
@@ -72,22 +71,39 @@ function processMovieDetailsResponse(movie) {
       </p>
     </div>
   `;
+}
 
-    if (document.getElementsByClassName('movie-detail').length > 0) {
-        document.getElementsByClassName('movie-detail')[0].remove();
+function createMovieElement(createMovieDetailsTemplate, createElement, movie) {
+    const movieDetailTemplate = createMovieDetailsTemplate(movie);
+    return createElement(movieDetailTemplate);
+}
+
+function createElement(template){
+    const el = document.createElement('template');
+    el.innerHTML = template;
+    return el;
+}
+
+function isElementOnPage(className) {
+    return document.getElementsByClassName(className).length > 0
+}
+
+function removeElement(className) {
+    document.getElementsByClassName(className)[0].remove();
+}
+
+function addElementToBody(isElementOnPage, removeElement, el) {
+
+    if (isElementOnPage('movie-detail')) {
+        removeElement('movie-detail');
     }
 
-    const el = document.createElement('template');
-    el.innerHTML = movieDetailTemplate;
     document.body.appendChild(el.content.firstElementChild);
     $('.movie-detail').animate({
         opacity: 1
     }, 300);
 }
 
-// function isDetailsBeingDisplayed() {
-//   return ;
-// }
 
 function displayGenres(id, genres) {
     let genresList = '';
@@ -116,7 +132,8 @@ $(document).on('click', '.movie img, .movie p', (e) => {
     e.preventDefault();
     const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${$(e.target).closest('.movie').data('movie-id')}?api_key=${apiKey}`;
     $.getJSON(movieDetailsUrl, response => {
-        processMovieDetailsResponse(response);
+        addElementToBody(isElementOnPage, removeElement,
+            createMovieElement(createMovieDetailsTemplate, createElement, response));
     })
     ;
 })
