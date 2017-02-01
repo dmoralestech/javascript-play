@@ -8,6 +8,8 @@ var R = require('ramda');
 // try to isolate side-effects so it's easier to test
 // try to provide the function's needs through parameters
 // (?) is it better to put expressions inside an if-statement to another function?
+// currying/partial application is like pre-populating your functions so that you only need to provide one paramter to call the actual function.
+// sometimes some parameter functions are tied-in to that function, and those kind of scenarios are good candidates for currying.
 
 function createMovieTemplate(movie) {
     return `
@@ -46,6 +48,9 @@ function createMovieDetailsTemplate(movie) {
   `;
 }
 
+const createFavoriteMovieTemplate = R.curry(function (ratingsOptions, movie) {
+    return `<li><span>${favoriteMovies[movieId].title}</span> <select class="movie-rating" data-movie-id="${movieId}">${ratingsOptions(favoriteMovies[movieId].rating)}</select> <a href="#" class="remove-favorite" data-movie-id="${movieId}">Remove</a></li>`;
+});
 
 function createMoviesElements(createElement, createMovieTemplate, movies) {
     return movies
@@ -54,21 +59,15 @@ function createMoviesElements(createElement, createMovieTemplate, movies) {
         .map(createElement);
 }
 
-function createMovieNotFoundElement(createElement, createMovieNotFoundTemplate) {
-    const template = createMovieNotFoundTemplate;
-    return createElement(template);
-}
 
-const createElementFromData = R.curry(function(createElement, createTemplate, data) {
-        const movieDetailTemplate = createTemplate(data);
-        return createElement(movieDetailTemplate);
-    });
+const createElementFromData = R.curry(function (createElement, createTemplate, data) {
+    const movieDetailTemplate = createTemplate(data);
+    return createElement(movieDetailTemplate);
+});
+
+const createMovieNotFoundElement = createElementFromData(createElement, createMovieNotFoundTemplate);
 
 const createMovieElement = createElementFromData(createElement, createMovieDetailsTemplate);
-
-const createFavoriteMovieTemplate = R.curry(function (ratingsOptions, movie){
-    return `<li><span>${favoriteMovies[movieId].title}</span> <select class="movie-rating" data-movie-id="${movieId}">${ratingsOptions(favoriteMovies[movieId].rating)}</select> <a href="#" class="remove-favorite" data-movie-id="${movieId}">Remove</a></li>`;
-});
 
 const createFavoriteMovieElement = createElementFromData(createElement, createFavoriteMovieTemplate(ratingsOptions));
 
@@ -79,11 +78,9 @@ function createElement(template) {
     return el;
 }
 
-function createMovieNotFoundTemplate(){
+function createMovieNotFoundTemplate() {
     return `<strong>I'm sorry, we could not found the movie you were looking for<strong>`;
 }
-
-
 
 
 function clearElement(id) {
@@ -99,7 +96,7 @@ function processSearchResponse(response) {
     const elements = response.total_results > 0 ?
         createMoviesElements(createMovieTemplate, createElement, createMovieTemplate, appendElementToParent,
             response.results, response.total_results)
-        : [createMovieNotFoundElement(createElement, createMovieNotFoundTemplate)];
+        : [createMovieNotFoundElement({})];
     elements.forEach(el => appendElementToParent('foundMovies', el));
 
 }
@@ -141,17 +138,14 @@ function addElementToBody(isElementOnPage, removeElement, el) {
 }
 
 
-
-
 function ratingsOptions(r) {
     let ratings = '<option>Rate this movie</option>';
     return ['<option>Rate this movie</option>',
         ...R.range(1, 11)
-        .reverse()
-        .map( i => `<option ${i == r ? 'selected' : ''}>${i}</option>`)];
+            .reverse()
+            .map(i => `<option ${i == r ? 'selected' : ''}>${i}</option>`)];
 
 }
-
 
 
 $(document).on('click', '.movie img, .movie p', (e) => {
