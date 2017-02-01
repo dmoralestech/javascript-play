@@ -3,14 +3,35 @@ const userMoviesService = require('./userMoviesService');
 const favoriteMovies = userMoviesService.loadSavedMovies();
 var R = require('ramda');
 
+// keep functions simple and small, make sure it only does one thing
+// it's better if functions return a value
+// try to isolate side-effects so it's easier to test
+// try to provide the function's needs through parameters
+// (?) is it better to put expressions inside an if-statement to another function?
 
-function clearElement(id) {
-    document.getElementById(id).innerHTML = '';
+
+function createMoviesElements(createElement, createMovieTemplate, movies) {
+    return movies
+        .filter(movie => movie.poster_path !== null && movie.poster_path !== undefined)
+        .map(createMovieTemplate)
+        .map(createElement);
 }
 
-function appendElementToParent(parent, el) {
-    document.getElementById(parent).appendChild(el.content.firstElementChild);
+function createMovieNotFoundElement(createElement, createMovieNotFoundTemplate) {
+    const template = createMovieNotFoundTemplate;
+    return createElement(template);
 }
+
+function createMovieElement(createElement, createMovieDetailsTemplate, movie) {
+    const movieDetailTemplate = createMovieDetailsTemplate(movie);
+    return createElement(movieDetailTemplate);
+}
+
+function createFavoriteMovieElement(createElement, createFavoriteMovieTemplate, ratingsOptions, movie) {
+    const template = createFavoriteMovieTemplate(ratingsOptions, movie);
+    return createElement(template);
+}
+
 
 function createElement(template) {
     const el = document.createElement('template');
@@ -18,18 +39,14 @@ function createElement(template) {
     return el;
 }
 
-function createMoviesElements(createMovieTemplate, createElement, createMovieTemplate, appendElementToParent, movies, totalResults) {
-    return movies
-        .filter(movie => movie.poster_path !== null && movie.poster_path !== undefined)
-        .map(createMovieTemplate)
-        .map(createElement);
+function createMovieNotFoundTemplate(){
+    return `<strong>I'm sorry, we could not found the movie you were looking for<strong>`;
 }
 
-
-function createMovieNotFoundElement(createElement) {
-    const template = `<strong>I'm sorry, we could not found the movie you were looking for<strong>`;
-    return createElement(template);
+function createFavoriteMovieTemplate(){
+    return `<li><span>${favoriteMovies[movieId].title}</span> <select class="movie-rating" data-movie-id="${movieId}">${ratingsOptions(favoriteMovies[movieId].rating)}</select> <a href="#" class="remove-favorite" data-movie-id="${movieId}">Remove</a></li>`;
 }
+
 
 function createMovieTemplate(movie) {
     return `
@@ -43,16 +60,6 @@ function createMovieTemplate(movie) {
         `;
 }
 
-function processSearchResponse(response) {
-    clearElement('foundMovies');
-    const elements = response.total_results > 0 ?
-        createMoviesElements(createMovieTemplate, createElement, createMovieTemplate, appendElementToParent,
-            response.results, response.total_results)
-        : [createMovieNotFoundElement(createElement)];
-    elements.forEach(el => appendElementToParent('foundMovies', el));
-
-}
-
 function createMovieDetailsTemplate(movie) {
     return `
     <div class="movie-detail" data-movie-id="${movie.id}">
@@ -61,7 +68,7 @@ function createMovieDetailsTemplate(movie) {
       <p>
         <em>Genres:</em>
         <ul>
-          ${displayGenres(movie.id, movie.genres)}
+          ${createGenresTemplates(movie.id, movie.genres)}
         </ul>
       </p>
       <p>
@@ -78,15 +85,40 @@ function createMovieDetailsTemplate(movie) {
   `;
 }
 
-// keep functions simple and small, make sure it only does one thing
-// it's better if functions return a value
-// try to isolate side-effects so it's easier to test
-// try to provide the function's needs through parameters
-// (?) is it better to put expressions inside an if-statement to another function?
+function clearElement(id) {
+    document.getElementById(id).innerHTML = '';
+}
 
-function createMovieElement(createMovieDetailsTemplate, createElement, movie) {
-    const movieDetailTemplate = createMovieDetailsTemplate(movie);
-    return createElement(movieDetailTemplate);
+function appendElementToParent(parent, el) {
+    document.getElementById(parent).appendChild(el.content.firstElementChild);
+}
+
+function processSearchResponse(response) {
+    clearElement('foundMovies');
+    const elements = response.total_results > 0 ?
+        createMoviesElements(createMovieTemplate, createElement, createMovieTemplate, appendElementToParent,
+            response.results, response.total_results)
+        : [createMovieNotFoundElement(createElement, createMovieNotFoundTemplate)];
+    elements.forEach(el => appendElementToParent('foundMovies', el));
+
+}
+
+function displayFavoriteMovies(favorites) {
+    clearElement('favorites');
+
+    Object.keys(favorites)
+        .map(movieId => createFavoriteMovieElement(createElement, createFavoriteMovieTemplate, ratingsOptions, favorites[movieId]))
+        .forEach(e => appendElementToParent('favorites', e));
+}
+
+function displayMovieDetails(movie) {
+    const element = createMovieElement(createElement, createMovieDetailsTemplate, movie);
+    addElementToBody(isElementOnPage, removeElement, element);
+}
+
+function createGenresTemplates(genres) {
+    return genres.map(genre => genresList += `<li>${genre.name}</li>`)
+        .join('');
 }
 
 function isElementOnPage(className) {
@@ -108,32 +140,18 @@ function addElementToBody(isElementOnPage, removeElement, el) {
 }
 
 
-function displayGenres(genres) {
-    return genres.map(genre => genresList += `<li>${genre.name}</li>`)
-        .join('');
-}
+
 
 function ratingsOptions(r) {
     let ratings = '<option>Rate this movie</option>';
-    return ['<option>Rate this movie</option>',  
+    return ['<option>Rate this movie</option>',
         ...R.range(1, 11)
         .reverse()
         .map( i => `<option ${i == r ? 'selected' : ''}>${i}</option>`)];
 
 }
 
-function displayFavoriteMovies(favorites) {
-    clearElement('favorites');
 
-    Object.keys(favorites)
-        .map(movieId => createFavoriteMovieElement(createElement, ratingsOption, favorites[movieId]))
-        .forEach(e => appendElementToParent('favorites', e));
-}
-
-function createFavoriteMovieElement(createElement, ratingsOption, movie) {
-    const template = `<li><span>${favoriteMovies[movieId].title}</span> <select class="movie-rating" data-movie-id="${movieId}">${ratingsOptions(favoriteMovies[movieId].rating)}</select> <a href="#" class="remove-favorite" data-movie-id="${movieId}">Remove</a></li>`;
-    return createElement(template);
-}
 
 $(document).on('click', '.movie img, .movie p', (e) => {
     e.preventDefault();
