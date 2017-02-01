@@ -9,45 +9,6 @@ var R = require('ramda');
 // try to provide the function's needs through parameters
 // (?) is it better to put expressions inside an if-statement to another function?
 
-
-function createMoviesElements(createElement, createMovieTemplate, movies) {
-    return movies
-        .filter(movie => movie.poster_path !== null && movie.poster_path !== undefined)
-        .map(createMovieTemplate)
-        .map(createElement);
-}
-
-function createMovieNotFoundElement(createElement, createMovieNotFoundTemplate) {
-    const template = createMovieNotFoundTemplate;
-    return createElement(template);
-}
-
-function createMovieElement(createElement, createMovieDetailsTemplate, movie) {
-    const movieDetailTemplate = createMovieDetailsTemplate(movie);
-    return createElement(movieDetailTemplate);
-}
-
-function createFavoriteMovieElement(createElement, createFavoriteMovieTemplate, ratingsOptions, movie) {
-    const template = createFavoriteMovieTemplate(ratingsOptions, movie);
-    return createElement(template);
-}
-
-
-function createElement(template) {
-    const el = document.createElement('template');
-    el.innerHTML = template;
-    return el;
-}
-
-function createMovieNotFoundTemplate(){
-    return `<strong>I'm sorry, we could not found the movie you were looking for<strong>`;
-}
-
-function createFavoriteMovieTemplate(){
-    return `<li><span>${favoriteMovies[movieId].title}</span> <select class="movie-rating" data-movie-id="${movieId}">${ratingsOptions(favoriteMovies[movieId].rating)}</select> <a href="#" class="remove-favorite" data-movie-id="${movieId}">Remove</a></li>`;
-}
-
-
 function createMovieTemplate(movie) {
     return `
           <div class="movie" data-movie-id="${movie.id}">
@@ -85,6 +46,46 @@ function createMovieDetailsTemplate(movie) {
   `;
 }
 
+
+function createMoviesElements(createElement, createMovieTemplate, movies) {
+    return movies
+        .filter(movie => movie.poster_path !== null && movie.poster_path !== undefined)
+        .map(createMovieTemplate)
+        .map(createElement);
+}
+
+function createMovieNotFoundElement(createElement, createMovieNotFoundTemplate) {
+    const template = createMovieNotFoundTemplate;
+    return createElement(template);
+}
+
+const createElementFromData = R.curry(function(createElement, createTemplate, data) {
+        const movieDetailTemplate = createTemplate(data);
+        return createElement(movieDetailTemplate);
+    });
+
+const createMovieElement = createElementFromData(createElement, createMovieDetailsTemplate);
+
+const createFavoriteMovieTemplate = R.curry(function (ratingsOptions, movie){
+    return `<li><span>${favoriteMovies[movieId].title}</span> <select class="movie-rating" data-movie-id="${movieId}">${ratingsOptions(favoriteMovies[movieId].rating)}</select> <a href="#" class="remove-favorite" data-movie-id="${movieId}">Remove</a></li>`;
+});
+
+const createFavoriteMovieElement = createElementFromData(createElement, createFavoriteMovieTemplate(ratingsOptions));
+
+
+function createElement(template) {
+    const el = document.createElement('template');
+    el.innerHTML = template;
+    return el;
+}
+
+function createMovieNotFoundTemplate(){
+    return `<strong>I'm sorry, we could not found the movie you were looking for<strong>`;
+}
+
+
+
+
 function clearElement(id) {
     document.getElementById(id).innerHTML = '';
 }
@@ -107,12 +108,12 @@ function displayFavoriteMovies(favorites) {
     clearElement('favorites');
 
     Object.keys(favorites)
-        .map(movieId => createFavoriteMovieElement(createElement, createFavoriteMovieTemplate, ratingsOptions, favorites[movieId]))
+        .map(movieId => createFavoriteMovieElement(favorites[movieId]))
         .forEach(e => appendElementToParent('favorites', e));
 }
 
 function displayMovieDetails(movie) {
-    const element = createMovieElement(createElement, createMovieDetailsTemplate, movie);
+    const element = createMovieElement(movie);
     addElementToBody(isElementOnPage, removeElement, element);
 }
 
@@ -158,7 +159,7 @@ $(document).on('click', '.movie img, .movie p', (e) => {
     const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${$(e.target).closest('.movie').data('movie-id')}?api_key=${apiKey}`;
     $.getJSON(movieDetailsUrl, response => {
         addElementToBody(isElementOnPage, removeElement,
-            createMovieElement(createMovieDetailsTemplate, createElement, response));
+            createMovieElement(response));
     })
     ;
 })
