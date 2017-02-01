@@ -3,13 +3,18 @@ const userMoviesService = require('./userMoviesService');
 const favoriteMovies = userMoviesService.loadSavedMovies();
 var R = require('ramda');
 
+//pure functions
+    // it should isolate external resources
+    // no side-effects
+    // it should transform data based on it parameters
+
 // keep functions simple and small, make sure it only does one thing
 // it's better if functions return a value
 // try to isolate side-effects so it's easier to test
 // try to provide the function's needs through parameters
 // (?) is it better to put expressions inside an if-statement to another function?
 // currying/partial application is like pre-populating your functions so that you only need to provide one paramter to call the actual function.
-// sometimes some parameter functions are tied-in to that function, and those kind of scenarios are good candidates for currying.
+// sometimes some parameter-functions are tied-in to that function, and those kind of scenarios are good candidates for currying.
 
 function createMovieTemplate(movie) {
     return `
@@ -58,7 +63,6 @@ function createMoviesElements(createElement, createMovieTemplate, movies) {
         .map(createMovieTemplate)
         .map(createElement);
 }
-
 
 const createElementFromData = R.curry(function (createElement, createTemplate, data) {
     const movieDetailTemplate = createTemplate(data);
