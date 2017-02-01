@@ -115,10 +115,11 @@ function displayGenres(genres) {
 
 function ratingsOptions(r) {
     let ratings = '<option>Rate this movie</option>';
-    for (let i = 10; i > 0; i--) {
-        ratings += `<option ${i == r ? 'selected' : ''}>${i}</option>`;
-    }
-    return ratings;
+    return ['<option>Rate this movie</option>',  
+        ...R.range(1, 11)
+        .reverse()
+        .map( i => `<option ${i == r ? 'selected' : ''}>${i}</option>`)];
+
 }
 
 function displayFavoriteMovies(favorites) {
