@@ -57,9 +57,13 @@ const createFavoriteMovieTemplate = R.curry(function (ratingsOptions, movie) {
     return `<li><span>${favoriteMovies[movieId].title}</span> <select class="movie-rating" data-movie-id="${movieId}">${ratingsOptions(favoriteMovies[movieId].rating)}</select> <a href="#" class="remove-favorite" data-movie-id="${movieId}">Remove</a></li>`;
 });
 
+function hasPoster(movie) {
+    return R.not(R.isNil(movie.poster_path));
+}
+
 function createMoviesElements(createElement, createMovieTemplate, movies) {
     return movies
-        .filter(movie => movie.poster_path !== null && movie.poster_path !== undefined)
+        .filter(hasPoster)
         .map(createMovieTemplate)
         .map(createElement);
 }
