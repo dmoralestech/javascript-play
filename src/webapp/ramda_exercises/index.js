@@ -61,12 +61,14 @@ const isNotNil = R.compose(R.not, R.isNil);
 
 const hasPoster =  R.compose(isNotNil, R.prop('poster_path'));
 
-function createMoviesElements(createElement, createMovieTemplate, movies) {
-    return movies
-        .filter(hasPoster)
-        .map(createMovieTemplate)
-        .map(createElement);
-}
+const createMoviesElements = R.compose(R.map(createElement), R.map(createMovieTemplate), R.filter(hasPoster));
+
+// function createMoviesElements(createElement, createMovieTemplate, movies) {
+//     return movies
+//         .filter(hasPoster)
+//         .map(createMovieTemplate)
+//         .map(createElement);
+// }
 
 const createElementFromData = R.curry(function (createElement, createTemplate, data) {
     const movieDetailTemplate = createTemplate(data);
@@ -102,8 +104,7 @@ function appendElementToParent(parent, el) {
 function processSearchResponse(response) {
     clearElement('foundMovies');
     const elements = response.total_results > 0 ?
-        createMoviesElements(createMovieTemplate, createElement, createMovieTemplate, appendElementToParent,
-            response.results, response.total_results)
+        createMoviesElements(response.results)
         : [createMovieNotFoundElement({})];
     elements.forEach(el => appendElementToParent('foundMovies', el));
 
