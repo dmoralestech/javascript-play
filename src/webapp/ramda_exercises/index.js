@@ -62,13 +62,9 @@ const isNotNil = R.compose(R.not, R.isNil);
 const hasPoster =  R.compose(isNotNil, R.prop('poster_path'));
 
 const createMoviesElements = R.compose(R.map(createElement), R.map(createMovieTemplate), R.filter(hasPoster));
+// same as above but opposite flow.
+//const createMoviesElements = R.pipe(R.filter(hasPoster), R.map(createMovieTemplate), R.map(createElement));
 
-// function createMoviesElements(createElement, createMovieTemplate, movies) {
-//     return movies
-//         .filter(hasPoster)
-//         .map(createMovieTemplate)
-//         .map(createElement);
-// }
 
 const createElementFromData = R.curry(function (createElement, createTemplate, data) {
     const movieDetailTemplate = createTemplate(data);
