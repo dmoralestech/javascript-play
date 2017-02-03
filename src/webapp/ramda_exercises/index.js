@@ -57,11 +57,18 @@ const createFavoriteMovieTemplate = R.curry(function (ratingsOptions, movie) {
     return `<li><span>${favoriteMovies[movieId].title}</span> <select class="movie-rating" data-movie-id="${movieId}">${ratingsOptions(favoriteMovies[movieId].rating)}</select> <a href="#" class="remove-favorite" data-movie-id="${movieId}">Remove</a></li>`;
 });
 
+const log = R.curry((prefix, data) => console.log(prefix, data));
+
 const isNotNil = R.compose(R.not, R.isNil);
 
 const hasPoster =  R.compose(isNotNil, R.prop('poster_path'));
 
 const createMoviesElements = R.compose(R.map(createElement), R.map(createMovieTemplate), R.filter(hasPoster));
+
+// if you want to add some debugging use R.tap()
+// const createMoviesElements = R.compose(R.map(createElement),  R.tap(log('createElement')),
+//     R.map(createMovieTemplate), R.tap(log('createMovieTemplate')), R.filter(hasPoster));
+
 // same as above but opposite flow.
 //const createMoviesElements = R.pipe(R.filter(hasPoster), R.map(createMovieTemplate), R.map(createElement));
 
