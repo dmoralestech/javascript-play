@@ -126,10 +126,12 @@ function displayMovieDetails(movie) {
     addElementToBody(isElementOnPage, removeElement, element);
 }
 
-function createGenresTemplates(genres) {
-    return genres.map(genre => genresList += `<li>${genre.name}</li>`)
-        .join('');
-}
+const createGenresTemplates = R.compose(R.join(''), R.map(genre => `<li>${genre.name}</li>`));
+
+// function createGenresTemplates(genres) {
+//     return genres.map(genre => genresList += `<li>${genre.name}</li>`)
+//         .join('');
+// }
 
 function isElementOnPage(className) {
     return document.getElementsByClassName(className).length > 0
