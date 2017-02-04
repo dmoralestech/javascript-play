@@ -170,6 +170,36 @@ function getValue(id) {
     return $(`#${id}`).val();
 }
 
+const getDataAttrValue = R.curry((attr, el) => {
+    return $(el).data(attr);
+});
+
+// getClosestMovie :: HTMLElement -> HTMLElement
+function getClosestMovie(el) {
+    return $(el).closest('.movie');
+}
+
+// fadeOut :: HTMLElement -> *
+function fadeOut(el) {
+    $(el).closest('div').animate({ opacity: 0 }, 300, function() {
+        $(el).remove();
+    });
+}
+
+// getMovieId :: HTMLElement -> a
+const getMovieId = getDataAttrValue('movie-id');
+
+// findMovieId :: HTMLElement -> String
+const findMovieId = R.compose(getMovieId, getClosestMovie);
+
+// movieDetailsUrl :: (HTMLElement -> String) -> String -> Event -> String
+const movieDetailsUrl = R.curry((findMovieId, apiKey, e) => {
+    return `https://api.themoviedb.org/3/movie/${findMovieId(e.target)}?api_key=${apiKey}`;
+});
+// getMoviesDetails :: Event -> *
+const getMoviesDetails = getJson(movieDetailsUrl(findMovieId, apiKey), displayMovieDetails);
+
+
 // searchForMovies :: Event -> *
 const searchForMovies = getJson(searchUrl(getValue, apiKey), processSearchResponse);
 onClick('button[type=submit]', searchForMovies);
