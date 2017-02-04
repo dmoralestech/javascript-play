@@ -161,6 +161,13 @@ function ratingsOptions(r) {
 
 }
 
+const searchUrl = R.curry((getValue, apiKey, e) => {
+    return `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${getValue('search')}`;
+});
+
+// searchForMovies :: Event -> *
+const searchForMovies = getJson(searchUrl(getValue, apiKey), processSearchResponse);
+onClick('button[type=submit]', searchForMovies);
 
 $(document).on('click', '.movie img, .movie p', (e) => {
     e.preventDefault();
