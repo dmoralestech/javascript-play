@@ -165,9 +165,20 @@ const searchUrl = R.curry((getValue, apiKey, e) => {
     return `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${getValue('search')}`;
 });
 
+// getValue :: String -> String
+function getValue(id) {
+    return $(`#${id}`).val();
+}
+
 // searchForMovies :: Event -> *
 const searchForMovies = getJson(searchUrl(getValue, apiKey), processSearchResponse);
 onClick('button[type=submit]', searchForMovies);
+
+const getJson = R.curry((urlBuilder, processResult, e) => {
+    $.getJSON(urlBuilder(e))
+        .done(processResult)
+        .fail(err => log('Error when search for movies:', err));
+});
 
 $(document).on('click', '.movie img, .movie p', (e) => {
     e.preventDefault();
