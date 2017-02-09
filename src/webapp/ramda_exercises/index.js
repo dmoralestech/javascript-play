@@ -2,6 +2,10 @@ const apiKey = require('./apiKey');
 const userMoviesService = require('./userMoviesService');
 const R = require('ramda');
 
+const appendElementToParent = R.curry((parent, el) => {
+    document.getElementById(parent).appendChild(el.content.firstElementChild);
+});
+
 // createFavoriteMovieTemplate :: (Number -> [String]) -> Movie -> String
 const createFavoriteMovieTemplate = R.curry(function (ratingsOptions, movie) {
     return `<li><span>${movie.title}</span> 
@@ -48,13 +52,12 @@ const createMovieElement = createElementFromData(createElement, createMovieDetai
 const createFavoriteMovieElement = createElementFromData(createElement,
     createFavoriteMovieTemplate(ratingsOptions));
 
-function processSearchResponse(response) {
-    clearElement('foundMovies');
-    const elements = response.total_results > 0
-        ? createMoviesElements(response.results)
-        : [createMovieNotFoundElement({})];
-    elements.forEach(el => appendElementToParent('foundMovies', el));
-}
+const searchHasResults = R.compose(R.lt(0), R.prop('total_results'));
+const createElementsFromResults = R.compose(createMoviesElements, R.prop('results'));
+const createArrayWithNotFound = R.always([createMovieNotFoundElement({})]);
+const processSearchResponse = R.compose(R.forEach(appendElementToParent('foundMovies')),
+    R.ifElse(searchHasResults, createElementsFromResults, createArrayWithNotFound),
+    R.tap(() => clearElement('foundMovies')));
 
 function displayFavoriteMovies(favorites) {
     clearElement('favorites');
@@ -172,11 +175,10 @@ onClick('.movie img, .movie p', function(e) {
 const searchUrl = R.curry((getValue, apiKey, e) => {
     return `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${getValue('search')}`;
 });
-
 // searchForMovies :: Event -> *
 const searchForMovies = getJson(searchUrl(getValue, apiKey), processSearchResponse);
-onClick('button[type=submit]', searchForMovies);
-
+const isNotEmpty = R.compose(R.not, R.isEmpty);
+window.searchIfNotEmpty = R.ifElse(isNotEmpty, searchForMovies, log('a search term should be provided'));
 
 onClick('.btn-close', function() {
     fadeOut(this);
@@ -209,10 +211,6 @@ handleEvent('change', '.movie-rating', function() {
 
 function clearElement(id) {
     document.getElementById(id).innerHTML = '';
-}
-
-function appendElementToParent(parent, el) {
-    document.getElementById(parent).appendChild(el.content.firstElementChild);
 }
 
 function createElement(template) {
