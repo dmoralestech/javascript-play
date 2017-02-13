@@ -20,7 +20,10 @@
     const cities = [];
     fetch(endpoint)
             .then(blob => blob.json())
-            .then(data => cities.push(...data));
+            .then(data => {
+                cities.push(...data);
+                console.log(data);
+            });
 
     function findMatches(wordToMatch, cities) {
         return cities.filter(place => {
