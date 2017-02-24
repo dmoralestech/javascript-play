@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        header, footer, nav, article, aside {
+            border: 1px solid black;
+            padding: 0.25em;
+            margin: 0.25em;
+            border-radius: 0.25em;
+        }
+
+        .vbox {
+            display:   inline-flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+<header>Header
+    <p>Hello world Header</p>
+</header>
+<div>
+    <nav>
+        Nav
+    </nav>
+    <article>Article
+        <div>
+            <ul class="vbox">
+                <li>Article 1</li>
+                <li>Article 2</li>
+                <li>Article 3</li>
+            </ul>
+        </div></article>
+    <aside>Aside
+        <p>Aside 1</p>
+        <p>Aside 2</p>
+        <p>Aside 3</p>
+    </aside>
+</div>
+<footer>Footer</footer>
+</body>
+</html>
