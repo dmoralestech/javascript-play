@@ -12,26 +12,13 @@
             border-radius: 0.25em;
         }
 
-        /*
-          Force full width & height.
-
-          If this block is removed, the layout height/length will be determined by
-          the amount of content in the page. That might result in a page which has
-          a footer only a few inches from the top of the viewport, or one which
-          scrolls beyond the viewport.
-
-          This forces the layout to always be full screen regardless of how much,
-          or how little, content is in place. Neither is "right" or "wrong", there
-          are valid cases for each. I just want to be clear what's controlling the
-          page/viewport height.
-        */
         html, body, .viewport {
             width: 100%;
             height: 100%;
             margin: 0;
         }
 
-        .vbox {
+        .vboxdm {
             /*display:         box;*/
             /*box-orient: vertical;*/
             display:         flex;
@@ -44,6 +31,11 @@
             /*box-orient: horizontal;*/
             display:         flex;
             flex-direction: row;
+        }
+
+        .mybox {
+            display: flex;
+            flex-direction: row-reverse;
         }
 
         .space-between {
@@ -74,18 +66,21 @@
         }
     </style>
 </head>
-<body class="vbox viewport">
+<body class="vboxdm viewport">
 <header>Header
     <p>Hello world Header</p>
 </header>
 <section class="main hbox space-between">
-    <nav>Nav
-        <p>Navigation 1</p>
-        <p>Navigation 2</p>
-        <p>Navigation 3</p>
+    <nav>
+        Nav
     </nav>
-    <article>Article</article>
-    <aside>Aside
+    <article>Article
+        <div class="mybox">
+            <p>Navigation 1</p>
+            <p>Navigation 2</p>
+            <p>Navigation 3</p>
+        </div></article>
+    <aside class="hbox">Aside
         <p>Aside 1</p>
         <p>Aside 2</p>
         <p>Aside 3</p>
