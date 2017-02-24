@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Flexbox Test</title>
+    <style>
+        header, footer,
+        nav, article, aside {
+            border: 1px solid black;
+            padding: 0.25em;
+            margin: 0.25em;
+            border-radius: 0.25em;
+        }
+
+        /*
+          Force full width & height.
+
+          If this block is removed, the layout height/length will be determined by
+          the amount of content in the page. That might result in a page which has
+          a footer only a few inches from the top of the viewport, or one which
+          scrolls beyond the viewport.
+
+          This forces the layout to always be full screen regardless of how much,
+          or how little, content is in place. Neither is "right" or "wrong", there
+          are valid cases for each. I just want to be clear what's controlling the
+          page/viewport height.
+        */
+        html, body, .viewport {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        .vbox {
+            /*display:         box;*/
+            /*box-orient: vertical;*/
+            display:         flex;
+            flex-direction: column;
+        }
+
+        /* items flex/expand horizontally */
+        .hbox {
+            /*display:         box;*/
+            /*box-orient: horizontal;*/
+            display:         flex;
+            flex-direction: row;
+        }
+
+        .space-between {
+            box-pack: justify;
+            justify-content: space-between;
+        }
+
+        /* I went with a fixed height header & footer because it's a common case.
+          This could easily be altered to flex proportionally with the page.
+        */
+        header, footer {
+            height: 100px;
+        }
+
+        .main {
+            box-flex: 1;
+            flex: 1;
+        }
+
+        article {
+            box-flex: 5;
+            flex: 5;
+        }
+
+        aside, nav {
+            box-flex: 1;
+            flex: 1;
+        }
+    </style>
+</head>
+<body class="vbox viewport">
+<header>Header
+    <p>Hello world Header</p>
+</header>
+<section class="main hbox space-between">
+    <nav>Nav
+        <p>Navigation 1</p>
+        <p>Navigation 2</p>
+        <p>Navigation 3</p>
+    </nav>
+    <article>Article</article>
+    <aside>Aside
+        <p>Aside 1</p>
+        <p>Aside 2</p>
+        <p>Aside 3</p>
+    </aside>
+</section>
+<footer>Footer</footer>
+</body>
+</html>
