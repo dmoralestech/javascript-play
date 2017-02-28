@@ -76,3 +76,15 @@ let makeBread2 = (...ingredients) => {
 }
 
 let makeBread3 =  after(bakeBread, cool);
+
+let beforeWith = (decoration) => rightApply(before, decoration);
+
+let mixBefore = beforeWith(mix);
+
+let bakeBread2 = mixBefore(bake);
+
+let afterWith = (decoration) => rightApply(after, decoration);
+
+let coolAfter = afterWith(after);
+
+let makeBread2 = coolAfter(bake);
