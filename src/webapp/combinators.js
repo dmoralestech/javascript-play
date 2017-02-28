@@ -24,6 +24,14 @@ let pluckFrom3 = leftApply(leftApply, leftApply)(pluck);
 let pluckWith2 = leftApply(rightApply, pluck);
 let pluckWith3 = leftApply(leftApply, rightApply)(pluck);
 
+let Istarstar = (a) => (b) => (c) => a(b, c);
+
+let pluckFrom4 = Istarstar(pluck);
+
+let C = (a) => (b) => (c) => a(c, b);
+
+let pluckWith4 = C(pluck);
+
 
 
 //console.log(pluckFrom2(artists)('name'));
