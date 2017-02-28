@@ -32,6 +32,12 @@ let C = (a) => (b) => (c) => a(c, b);
 
 let pluckWith4 = C(pluck);
 
+let getStuff = (object, prop) => object[prop];
+
+let getWith = C(getStuff);
+let nameOf = getWith('name');
+
+console.log(nameOf({name: 'Darkwing'}));
 
 
 //console.log(pluckFrom2(artists)('name'));
