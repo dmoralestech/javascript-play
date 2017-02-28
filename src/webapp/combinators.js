@@ -57,3 +57,23 @@ let makeBread = (...ingredients) => {
     cool();
 }
 
+let before = (fn, decoration) => (...args) => {
+    decoration(...args);
+    return fn(...args);
+};
+
+let before = (fn, decoration) => (...args) => {
+    let returnValue = fn(...args);
+    decoration(...args);
+    return returnValue;
+};
+
+let bakeBread = before(bake, mix);
+
+let makeBread2 = (...ingredients) => {
+    bakeBread();
+    cool();
+}
+
+
+let makeBread3 =  after(bakeBread, cool);
