@@ -13,7 +13,21 @@ let pluckFrom = (collection)=>
 let pluckWith = (property) =>
     (collection) => pluck(collection, property);
 
-console.log(pluckFrom(artists)('name'));
+let leftApply = (fn, a) =>
+    (b) => fn(a, b);
+
+let rightApply = (fn, b) => (a) => fn(a, b);
+
+let pluckFrom2 = (collection)=> leftApply(pluck, collection);
+let pluckFrom3 = leftApply(leftApply, leftApply)(pluck);
+
+let pluckWith2 = leftApply(rightApply, pluck);
+let pluckWith3 = leftApply(leftApply, rightApply)(pluck);
+
+
+
+//console.log(pluckFrom2(artists)('name'));
+console.log(pluckFrom3(artists)('name'));
 
 console.log('Hello');
 //console.log(pluck(artists, 'name'));
