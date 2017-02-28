@@ -75,5 +75,4 @@ let makeBread2 = (...ingredients) => {
     cool();
 }
 
-
 let makeBread3 =  after(bakeBread, cool);
