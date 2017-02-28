@@ -45,3 +45,15 @@ console.log(pluckFrom3(artists)('name'));
 
 console.log('Hello');
 //console.log(pluck(artists, 'name'));
+
+let mix = (...ingredients) => console.log('mixing', ...ingredients);
+
+let bake = () => console.log('baking');
+let cool = () => console.log('cooling');
+
+let makeBread = (...ingredients) => {
+    mix(...ingredients);
+    bake();
+    cool();
+}
+
