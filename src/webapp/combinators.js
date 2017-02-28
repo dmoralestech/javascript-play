@@ -62,7 +62,7 @@ let before = (fn, decoration) => (...args) => {
     return fn(...args);
 };
 
-let before = (fn, decoration) => (...args) => {
+let after = (fn, decoration) => (...args) => {
     let returnValue = fn(...args);
     decoration(...args);
     return returnValue;
