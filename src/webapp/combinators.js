@@ -70,10 +70,10 @@ let after = (fn, decoration) => (...args) => {
 
 let bakeBread = before(bake, mix);
 
-let makeBread2 = (...ingredients) => {
-    bakeBread();
-    cool();
-}
+// let makeBread2 = (...ingredients) => {
+//     bakeBread();
+//     cool();
+// }
 
 let makeBread3 =  after(bakeBread, cool);
 
