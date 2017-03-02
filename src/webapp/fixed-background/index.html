@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main class="cd-main-content">
+    <div class="cd-fixed-bg cd-bg-1">
+        <h1>Alternating fixed/scrolling backgrounds Pure CSS</h1>
+    </div> <!-- cd-fixed-bg -->
+
+    <div class="cd-scrolling-bg cd-color-2">
+        <div class="cd-container">
+            <p>
+                For this pen I included only the vanilla CSS and only that necessary  to demonstrate the effect but on the author's site at <a href="codyhouse.co/gem/alternate-fixed-scroll-backgrounds/">codyhouse.co</a>, the creators are using Sass which I think is nicer. But for the sake of simplicity for this example I took the easy way out.
+            </p>
+            <p>
+                As anyone who has tried knows, implementing sample code such as this into a site with a different architecture can be a little tricky but I did manage to weave it into a pre-existing project with a little work. I love the effect!
+            </p>
+        </div> <!-- cd-container -->
+    </div> <!-- cd-scrolling-bg -->
+
+    <div class="cd-fixed-bg cd-bg-2">
+        <h2>The guy in the white leathers is me.</h2>
+    </div> <!-- cd-fixed-bg -->
+
+    <div class="cd-scrolling-bg cd-color-3">
+        <div class="cd-container">
+            <p>In the authors presentation of the code, the default setting for the height of both the fixed and scrolling backgrounds is 100%. That min height can be what ever you want. If you add more text, the container grows but will always fill the viewport to the degree that min-height is defined.</p>
+            <p>I have chosen to reduce this value to something less than 100% because at 100%, upon initial page load, the user has no visual indication that there is anything below the fold. My settings for these values, contained in the classes .cd-fixed-bg and .cd-scrolling-bg are 75% and 50% respectively.</p>
+            <p>I suppose you could ad ID's to the individual scrolling-bg's and have them at different sizes for different purposes but that's up to you.
+            </p>
+        </div> <!-- cd-container -->
+    </div> <!-- cd-scrolling-bg -->
+
+    <div class="cd-fixed-bg cd-bg-3">
+        <h2>There I go again, leaning it over.</h2>
+    </div> <!-- cd-fixed-bg -->
+
+    <div class="cd-scrolling-bg cd-color-1">
+        <div class="cd-container">
+            <p>
+                Originally I tried implementing just the code snippets they show on the site but that totally did not work. Finally I downloaded the source and realized that there was so much more to it than just the bit they showed on the blog page. So we continue to learn.
+            </p>
+        </div> <!-- cd-container -->
+    </div> <!-- cd-scrolling-bg -->
+
+    <div class="cd-fixed-bg cd-bg-4">
+        <h2>Last shot is a knee dragger!</h2>
+    </div> <!-- cd-fixed-bg -->
+</main> <!-- cd-main-content -->
+</body>
+</html>
