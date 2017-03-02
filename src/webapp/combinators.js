@@ -132,16 +132,16 @@ let add3Curry = (a) => (b) => (c) => {
 }
 
 let g = add3Curry(1); // This returns a function with 2 parameters
-//
-//	(b) => (c) => { return 1 + b + c; }
-//
+                      //    (1) => (b) => (c) => { return a + b + c; }
+                      //	       (b) => (c) => { return 1 + b + c; }
+                      //
 
 
-let h = g(2); // This returns a function with 1 parameter
-//
-//	(2) => (c) => { return 1 + b + c; }
-//	       (c) => { return 1 + 2 + c; }
-//
+let h = g(2);   // This returns a function with 1 parameter
+                //
+                //	(2) => (c) => { return 1 + b + c; }
+                //	       (c) => { return 1 + 2 + c; }
+                //
 
 
 
