@@ -143,7 +143,9 @@ let h = g(2);   // This returns a function with 1 parameter
                 //	       (c) => { return 1 + 2 + c; }
                 //
 
+console.log(h(4));
 
+console.log(add3Curry(2)(3)(10));
 
 
 
