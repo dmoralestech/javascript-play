@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+
+h1, h2, h3, h4, p {
+    margin-bottom: 20px;
+}
+
+nav {
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    background-color: rgba( 0, 0, 0, .5);
+    z-index: 99;
+
+}
+
+.sect {
+    height:70%;
+    background-color: aqua;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.subSection {
+    height: 70%;
+    background-color: bisque;
+}
+
+.sectOne {
+    background-image: url('ScrollingLayout/images/1.jpg') ;
+
+}
+
+.sectTwo {
+    background-image: url('ScrollingLayout/images/2.jpg')
+}
+
+.sectThree {
+    background-image: url('ScrollingLayout/images/3.jpg')
+}
