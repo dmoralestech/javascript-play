@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html {
+            height: 100%;
+            box-sizing: border-box; /* https://css-tricks.com/box-sizing/ */
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit; /* https://css-tricks.com/box-sizing/ */
+        }
+
+        body {
+            margin: 0;
+            min-height: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            text-align: center;
+        }
+
+        aside {
+            background: hotpink;
+            flex: 1 250px;
+        }
+
+        #inner-flex-container {
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - 250px);
+        }
+
+        header {
+            flex: 1;
+            background: tomato;
+        }
+
+        section {
+            flex: 4;
+            background: deepskyblue;
+        }
+
+        footer {
+            flex: 1;
+            background: lightgreen;
+        }
+
+    </style>
+</head>
+<body>
+<aside>aside</aside>
+<div id="inner-flex-container">
+    <header>header</header>
+    <section>section</section>
+    <footer>footer</footer>
+</div>
+</body>
+</html>
