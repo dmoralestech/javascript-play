@@ -2,6 +2,12 @@
  * Created by dmorales on 3/03/2017.
  */
 
+
+var R = require('ramda');
+
+const isNegativeAvsGroup = (code) => { return isNegativeAvsGroup(code) };
+
+
 function compareAVSCodes(codeFromSource, codeFromUser, avsFamily, lexiconAVSGroupMap, isComparePromotedAvsCodes) {
     var applicable = Applicable.Unknown;
     var isAvsCodeNegativeGroup = isNegativeAvsGroup(codeFromSource);
