@@ -3,15 +3,12 @@
  */
 
 
-var R = require('ramda');
-
-const isNegativeAvsGroup = (code) => { return isNegativeAvsGroup(code) };
-
+const isNegativeGroup = (code) => isNegativeAvsGroup(code);
 
 function compareAVSCodes(codeFromSource, codeFromUser, avsFamily, lexiconAVSGroupMap, isComparePromotedAvsCodes) {
     var applicable = Applicable.Unknown;
-    var isAvsCodeNegativeGroup = isNegativeAvsGroup(codeFromSource);
-    var isVehicleCodeNegativeGroup = isNegativeAvsGroup(codeFromUser);
+    var isAvsCodeNegativeGroup = isNegativeGroup(codeFromSource);
+    var isVehicleCodeNegativeGroup = isNegativeGroup(codeFromUser);
 
     if (isAvsCodeNegativeGroup && isVehicleCodeNegativeGroup) {
         applicable = Applicable.Unknown;
@@ -26,7 +23,7 @@ function compareAVSCodes(codeFromSource, codeFromUser, avsFamily, lexiconAVSGrou
             var codeArray;
             var code2Array;
             if (avsFamily.equalsIgnoreCase(FamilyFeatureCodes.Engine)) {
-                codeArray = getAvsGroupCodesArray(codeFromSource, lexiconAVSGroupMap);
+                codeArray =  getAvsGroupCodesArray(codeFromSource, lexiconAVSGroupMap);
                 code2Array = getAvsGroupCodesArray(codeFromUser, lexiconAVSGroupMap);
                 isMatch = (codeArray.length > 0 && code2Array.length > 0) ? compareEngineCodes(code2Array, codeArray) : true;
             } else {
