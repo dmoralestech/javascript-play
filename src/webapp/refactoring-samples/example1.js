@@ -98,7 +98,7 @@ function getApplicableB(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
 }
 
 function isCodeMatch(comparePromotedCodes, isCodeAGroupCode, isVehicleACodeGroup, isCodeMatchEngine, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC,  objData) {
-    if (family === FamilyFeatureCodes.Engine) {
+    if (objData.family === FamilyFeatureCodes.Engine) {
         return isCodeMatchEngine(objData);
     } else {
         if (areBothCodesNotAGroupCode(isCodeAGroupCode, isVehicleACodeGroup)) {
