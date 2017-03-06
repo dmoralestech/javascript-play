@@ -31,38 +31,38 @@ const isCodeAGroupCode = (code) => {
     return Utils.isGroup(code);
 }
 
-function compareCodes(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, code, vehicleCode, ) {
-    let applicable;
+const comparePromotedCodes = (arr1, arr2) => {
+    return Utils.comparePromotedCodes(arr1, arr2);
+}
+
+function compareCodes(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, code, vehicleCode,) {
+    let applicable = Applicable.Unknown;
     const isCodeNegativeGroup = isCodeNegativeGroupFn(code);
     const isVehicleCodeNegativeGroup = isCodeNegativeGroupFn(vehicleCode);
 
-    if (areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup)) {
-        // 16 bit logic does not attempt to compare a -ve  against a -ve vehicle
-        applicable = Applicable.Unknown;
-    } else {
-        applicable = getApplicable(isCodeNegativeGroupFn, isVehicleCodeNegativeGroup, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, code, vehicleCode);
+    if (!areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup)) {
+        applicable = getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, code, vehicleCode);
     }
 
     return applicable;
-
 }
 
-let compareCodesCurry =  R.curry(compareCodes);
+let compareCodesCurry = R.curry(compareCodes);
 
-compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode)("code1") ("code2")
+compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes)("code1")("code2")
 
 function areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
     return isCodeNegativeGroup && isVehicleCodeNegativeGroup;
 }
 
-function getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, code, vehicleCode) {
+function getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, code, vehicleCode) {
 
     let applicable = Applicable.Unknown;
     let family = getFamily(vehicleCode);
     if (areCodeBelongToTheSameFamily(family, code, vehicleCode)) {
         const isCodeAGroupCode = isCodeAGroupCode(code);
         const isVehicleCodeGroup = isCodeAGroupCode(vehicleCode);
-        const CodeMatch = isCodeMatch(code, vehicleCode, family, isCodeAGroupCode, isVehicleCodeGroup);
+        const CodeMatch = isCodeMatch(comparePromotedCodes, isCodeAGroupCode, isVehicleCodeGroup, code, vehicleCode, family,);
         if (CodeMatch) {
             applicable = getApplicableA(isCodeNegativeGroup, isVehicleCodeNegativeGroup);
         } else {
@@ -98,12 +98,12 @@ function getApplicableB(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
     return applicable;
 }
 
-function isCodeMatch(code, vehicleCode, family, isCodeAGroupCode, isVehicleACodeGroup) {
-    if (family.equalsIgnoreCase(FamilyFeatureCodes.Engine)) {
+function isCodeMatch(comparePromotedCodes, isCodeAGroupCode, isVehicleACodeGroup, code, vehicleCode, family) {
+    if (family === FamilyFeatureCodes.Engine) {
         return isCodeMatchEngine(code, vehicleCode);
     } else {
         if (areBothCodesNotAGroupCode(isCodeAGroupCode, isVehicleACodeGroup)) {
-            return isCodeMatchB(code, vehicleCode);
+            return isCodeMatchB(comparePromotedCodes, code, vehicleCode);
         } else {
             return isCodeMatchC(code, vehicleCode, isCodeAGroupCode, isVehicleACodeGroup);
         }
@@ -127,12 +127,12 @@ function isCodeMatchC(code, vehicleCode, isCodeGroup, isVehicleCodeGroup) {
     return CodeMatch;
 }
 
-function sCodeMatchB(code, vehicleCode) {
+function isCodeMatchB(comparePromotedCodes, code, vehicleCode) {
     if (isComparePromotedCodes()) {
         return comparePromotedCodes([vehicleCode], [code]);
     } else {
         //both codes are single  codes
-        if (vehicleCode.equalsIgnoreCase(code) || (code.startsWith("X") && code.endsWith("0"))) {
+        if (vehicleCode === code || (code.startsWith("X") && code.endsWith("0"))) {
             return true;
         }
     }
