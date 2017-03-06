@@ -2,6 +2,8 @@
  * Created by dmorales on 3/03/2017.
  */
 
+var R = require('ramda');
+
 var Applicable = {
     Unknown: 0,
     False: 1,
@@ -9,38 +11,55 @@ var Applicable = {
 }
 
 function isComparePromotedCodes() {
-    //TODO:
+    //Need to implement this
     return true;
 }
 
-function compareCodes(code, vehicleCode) {
+const isCodeNegativeGroupFn = (code) => {
+    return Utils.isNegativeGroup(code);
+}
+
+const getFamily = (code) => {
+    return Utils.getFamily(code)
+}
+
+const areCodeBelongToTheSameFamily = (family, code1, code2) => {
+    return Utils.areCodesComparable(family, code1, code2)
+}
+
+const isCodeAGroupCode = (code) => {
+    return Utils.isGroup(code);
+}
+
+function compareCodesTest(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, code, vehicleCode, ) {
     let applicable;
-    const isCodeNegativeGroup = Utils.isNegativeGroup(code);
-    const isVehicleCodeNegativeGroup = Utils.isNegativeGroup(vehicleCode);
+    const isCodeNegativeGroup = isCodeNegativeGroupFn(code);
+    const isVehicleCodeNegativeGroup = isCodeNegativeGroupFn(vehicleCode);
 
     if (areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup)) {
         // 16 bit logic does not attempt to compare a -ve  against a -ve vehicle
         applicable = Applicable.Unknown;
     } else {
-
-        applicable = getApplicable(code, vehicleCode, isCodeNegativeGroup, isVehicleCodeNegativeGroup);
+        applicable = getApplicable(sCodeNegativeGroup, isVehicleCodeNegativeGroup, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, code, vehicleCode);
     }
 
     return applicable;
 
 }
 
+compareCodesTest(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode)("code1") ("code2")
+
 function areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
     return isCodeNegativeGroup && isVehicleCodeNegativeGroup;
 }
 
-function getApplicable(code, vehicleCode, isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
+function getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, code, vehicleCode) {
 
     let applicable = Applicable.Unknown;
     let family = getFamily(vehicleCode);
-    if (Utils.areCodesComparable(family, code, vehicleCode)) {
-        const isCodeAGroupCode = Utils.isGroup(code);
-        const isVehicleCodeGroup = Utils.isGroup(vehicleCode);
+    if (areCodeBelongToTheSameFamily(family, code, vehicleCode)) {
+        const isCodeAGroupCode = isCodeAGroupCode(code);
+        const isVehicleCodeGroup = isCodeAGroupCode(vehicleCode);
         const CodeMatch = isCodeMatch(code, vehicleCode, family, isCodeAGroupCode, isVehicleCodeGroup);
         if (CodeMatch) {
             applicable = getApplicableA(isCodeNegativeGroup, isVehicleCodeNegativeGroup);
@@ -82,7 +101,7 @@ function isCodeMatch(code, vehicleCode, family, isCodeAGroupCode, isVehicleACode
         return isCodeMatchEngine(code, vehicleCode);
     } else {
         if (areBothCodesNotAGroupCode(isCodeAGroupCode, isVehicleACodeGroup)) {
-            return isCodeMatchB(code, vehicleCode );
+            return isCodeMatchB(code, vehicleCode);
         } else {
             return isCodeMatchC(code, vehicleCode, isCodeAGroupCode, isVehicleACodeGroup);
         }
