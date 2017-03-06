@@ -23,8 +23,8 @@ const getFamily = (code) => {
     return Utils.getFamily(code)
 }
 
-const areCodeBelongToTheSameFamily = (family, code1, code2) => {
-    return Utils.areCodesComparable(family, code1, code2)
+const areCodeBelongToTheSameFamily = (objData) => {
+    return Utils.areCodesComparable(objData.family, objData.codeSource, objData.codeVehicle)
 }
 
 const isCodeAGroupCode = (code) => {
@@ -35,14 +35,14 @@ const comparePromotedCodes = (arr1, arr2) => {
     return Utils.comparePromotedCodes(arr1, arr2);
 }
 
-// I wonder if I can group getApplicable with its other dependent parameters? (isCodeNegativeGroup, isVehicleCodeNegativeGroup, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes)
-function compareCodes(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, code, vehicleCode,) {
+// I wonder if I can group getApplicable with its other dependent parameters? (isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes)
+function compareCodes(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, objData) {
     let applicable = Applicable.Unknown;
-    const isCodeNegativeGroup = isCodeNegativeGroupFn(code);
-    const isVehicleCodeNegativeGroup = isCodeNegativeGroupFn(vehicleCode);
+    const isCodeNegativeGroup = isCodeNegativeGroupFn(objData.codeFromSource);
+    const isVehicleCodeNegativeGroup = isCodeNegativeGroupFn(objData.codeFromVehicle);
 
     if (!areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup)) {
-        applicable = getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes,  code, vehicleCode);
+        applicable = getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, objData);
     }
 
     return applicable;
@@ -55,14 +55,14 @@ function areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
     return isCodeNegativeGroup && isVehicleCodeNegativeGroup;
 }
 
-function getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, code, vehicleCode) {
+function getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, objData) {
 
     let applicable = Applicable.Unknown;
-    let family = getFamily(vehicleCode);
-    if (areCodeBelongToTheSameFamily(family, code, vehicleCode)) {
-        const isCodeAGroupCode = isCodeAGroupCode(code);
-        const isVehicleCodeGroup = isCodeAGroupCode(vehicleCode);
-        const CodeMatch = isCodeMatch(comparePromotedCodes, isCodeAGroupCode, isVehicleCodeGroup, code, vehicleCode, family,);
+    let family = objData.family;
+    if (areCodeBelongToTheSameFamily(objData)) {
+        const isCodeAGroupCode = isCodeAGroupCode(objData.codeSource);
+        const isVehicleCodeGroup = isCodeAGroupCode(objData.codeVehicle);
+        const CodeMatch = isCodeMatch(comparePromotedCodes, isCodeAGroupCode, isVehicleCodeGroup, objData);
         if (CodeMatch) {
             applicable = getApplicableA(isCodeNegativeGroup, isVehicleCodeNegativeGroup);
         } else {
@@ -98,14 +98,14 @@ function getApplicableB(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
     return applicable;
 }
 
-function isCodeMatch(comparePromotedCodes, isCodeAGroupCode, isVehicleACodeGroup, code, vehicleCode, family) {
+function isCodeMatch(comparePromotedCodes, isCodeAGroupCode, isVehicleACodeGroup, objData) {
     if (family === FamilyFeatureCodes.Engine) {
-        return isCodeMatchEngine(code, vehicleCode);
+        return isCodeMatchEngine(objData);
     } else {
         if (areBothCodesNotAGroupCode(isCodeAGroupCode, isVehicleACodeGroup)) {
-            return isCodeMatchB(comparePromotedCodes, code, vehicleCode);
+            return isCodeMatchB(comparePromotedCodes, objData);
         } else {
-            return isCodeMatchC(code, vehicleCode, isCodeAGroupCode, isVehicleACodeGroup);
+            return isCodeMatchC(isCodeAGroupCode, isVehicleACodeGroup, objData);
         }
     }
 }
@@ -114,38 +114,42 @@ function areBothCodesNotAGroupCode(isCodeGroup, isVehicleCodeGroup) {
     return (!isCodeGroup) && (!isVehicleCodeGroup);
 }
 
-function isCodeMatchC(code, vehicleCode, isCodeGroup, isVehicleCodeGroup) {
-    let CodeMatch;
+function isCodeMatchC(isCodeGroup, isVehicleCodeGroup, objData) {
+    let codeMatch;
     let lexiconGroupMap = getLexiconGroupMap();
-    const Codes = isCodeGroup ? Utils.getGroupCodesArray(code, lexiconGroupMap) : [code];
-    const vehicleCodes = isVehicleCodeGroup ? Utils.getGroupCodesArray(vehicleCode, lexiconGroupMap) : [vehicleCode];
+    const Codes = isCodeGroup ? Utils.getGroupCodesArray(objData.codeSource, lexiconGroupMap) : [objData.codeSource];
+    const vehicleCodes = isVehicleCodeGroup ? Utils.getGroupCodesArray(objData.vehicleCode, lexiconGroupMap) : [objData.vehicleCode];
     if (isComparePromotedCodes()) {//DEV-9062, for promoted minor features the earlier code was not checking if belongs to a group or not.
-        CodeMatch = comparePromotedCodes(vehicleCodes, Codes); //This comparison will ignore the first 3 characters if is promoted
+        codeMatch = comparePromotedCodes(vehicleCodes, Codes); //This comparison will ignore the first 3 characters if is promoted
     } else {
-        CodeMatch = ArrayUtils.containsMatchIgnoreCase(vehicleCodes, Codes);
+        codeMatch = ArrayUtils.containsMatchIgnoreCase(vehicleCodes, Codes);
     }
-    return CodeMatch;
+    return codeMatch;
 }
 
-function isCodeMatchB(comparePromotedCodes, code, vehicleCode) {
+function isCodeMatchB(comparePromotedCodes, objData) {
     if (isComparePromotedCodes()) {
-        return comparePromotedCodes([vehicleCode], [code]);
+        return comparePromotedCodes([objData.codeVehicle], [objData.codeSource]);
     } else {
         //both codes are single  codes
-        if (vehicleCode === code || (code.startsWith("X") && code.endsWith("0"))) {
+        if (objData.codeVehicle === objData.codeSource || (objData.codeSource.startsWith("X") && objData.codeSource.endsWith("0"))) {
             return true;
         }
     }
     return false;
 }
 
-function isCodeMatchEngine(code, vehicleCode) {
-    let CodeMatch;
+function isCodeMatchEngine(objData) {
+    let codeMatch;
     let lexiconGroupMap = getLexiconGroupMap();
-    const Codes = Utils.getGroupCodesArray(code, lexiconGroupMap);
-    const vehicleCodes = Utils.getGroupCodesArray(vehicleCode, lexiconGroupMap);
-    CodeMatch = (Codes.length > 0 && vehicleCodes.length > 0) ? Utils.compareEngineCodes(vehicleCodes, Codes) : true;
-    return CodeMatch;
+    const codes = Utils.getGroupCodesArray(objData.codeSource, lexiconGroupMap);
+    const vehicleCodes = Utils.getGroupCodesArray(objData.codeVehicle, lexiconGroupMap);
+    codeMatch = (codes.length > 0 && vehicleCodes.length > 0) ? Utils.compareEngineCodes(vehicleCodes, codes) : true;
+    return codeMatch;
 }
 
-compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes)("code1")("code2");
+compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes)({
+    codeSource: "code1",
+    codeVehicle: "code2",
+    family: "EN"
+});
