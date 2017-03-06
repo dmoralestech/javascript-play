@@ -31,7 +31,7 @@ const isCodeAGroupCode = (code) => {
     return Utils.isGroup(code);
 }
 
-function compareCodesTest(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, code, vehicleCode, ) {
+function compareCodes(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, code, vehicleCode, ) {
     let applicable;
     const isCodeNegativeGroup = isCodeNegativeGroupFn(code);
     const isVehicleCodeNegativeGroup = isCodeNegativeGroupFn(vehicleCode);
@@ -40,14 +40,16 @@ function compareCodesTest(isCodeNegativeGroupFn, areBothNegativeGroup, getApplic
         // 16 bit logic does not attempt to compare a -ve  against a -ve vehicle
         applicable = Applicable.Unknown;
     } else {
-        applicable = getApplicable(sCodeNegativeGroup, isVehicleCodeNegativeGroup, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, code, vehicleCode);
+        applicable = getApplicable(isCodeNegativeGroupFn, isVehicleCodeNegativeGroup, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, code, vehicleCode);
     }
 
     return applicable;
 
 }
 
-compareCodesTest(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode)("code1") ("code2")
+let compareCodesCurry =  R.curry(compareCodes);
+
+compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode)("code1") ("code2")
 
 function areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
     return isCodeNegativeGroup && isVehicleCodeNegativeGroup;
