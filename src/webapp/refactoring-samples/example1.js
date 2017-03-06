@@ -38,8 +38,8 @@ const comparePromotedCodes = (arr1, arr2) => {
 // I wonder if I can group getApplicable with its other dependent parameters? (isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes)
 function compareCodes(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, objData) {
     let applicable = Applicable.Unknown;
-    const isCodeNegativeGroup = isCodeNegativeGroupFn(objData.codeFromSource);
-    const isVehicleCodeNegativeGroup = isCodeNegativeGroupFn(objData.codeFromVehicle);
+    const isCodeNegativeGroup = isCodeNegativeGroupFn(objData.codeSource);
+    const isVehicleCodeNegativeGroup = isCodeNegativeGroupFn(objData.codeVehicle);
 
     if (!areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup)) {
         applicable = getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, objData);
