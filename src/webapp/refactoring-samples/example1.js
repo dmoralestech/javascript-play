@@ -55,13 +55,13 @@ function areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
     return isCodeNegativeGroup && isVehicleCodeNegativeGroup;
 }
 
-function getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB, objData) {
+function getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB, isCodeMatchEngine, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC, objData) {
 
     let applicable = Applicable.Unknown;
     if (areCodeBelongToTheSameFamily(objData)) {
         const isCodeAGroupCode = isCodeAGroupCode(objData.codeSource);
         const isVehicleCodeGroup = isCodeAGroupCode(objData.codeVehicle);
-        const CodeMatch = isCodeMatch(comparePromotedCodes, isCodeAGroupCode, isVehicleCodeGroup, objData);
+        const CodeMatch = isCodeMatch(comparePromotedCodes, isCodeAGroupCode, isVehicleCodeGroup, isCodeMatchEngine, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC, objData);
         if (CodeMatch) {
             applicable = getApplicableA(isCodeNegativeGroup, isVehicleCodeNegativeGroup);
         } else {
@@ -97,7 +97,7 @@ function getApplicableB(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
     return applicable;
 }
 
-function isCodeMatch(comparePromotedCodes, isCodeAGroupCode, isVehicleACodeGroup, objData) {
+function isCodeMatch(comparePromotedCodes, isCodeAGroupCode, isVehicleACodeGroup, isCodeMatchEngine, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC,  objData) {
     if (family === FamilyFeatureCodes.Engine) {
         return isCodeMatchEngine(objData);
     } else {
@@ -147,7 +147,7 @@ function isCodeMatchEngine(objData) {
     return codeMatch;
 }
 
-compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB)({
+compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB, isCodeMatchEngine, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC,)({
     codeSource: "code1",
     codeVehicle: "code2",
     family: "EN"
