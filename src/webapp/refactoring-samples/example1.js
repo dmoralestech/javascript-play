@@ -36,13 +36,13 @@ const comparePromotedCodes = (arr1, arr2) => {
 }
 
 // I wonder if I can group getApplicable with its other dependent parameters? (isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes)
-function compareCodes(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, objData) {
+function compareCodes(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB, objData) {
     let applicable = Applicable.Unknown;
     const isCodeNegativeGroup = isCodeNegativeGroupFn(objData.codeSource);
     const isVehicleCodeNegativeGroup = isCodeNegativeGroupFn(objData.codeVehicle);
 
     if (!areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup)) {
-        applicable = getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, objData);
+        applicable = getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB, objData);
     }
 
     return applicable;
@@ -55,10 +55,9 @@ function areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
     return isCodeNegativeGroup && isVehicleCodeNegativeGroup;
 }
 
-function getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, objData) {
+function getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB, objData) {
 
     let applicable = Applicable.Unknown;
-    let family = objData.family;
     if (areCodeBelongToTheSameFamily(objData)) {
         const isCodeAGroupCode = isCodeAGroupCode(objData.codeSource);
         const isVehicleCodeGroup = isCodeAGroupCode(objData.codeVehicle);
@@ -148,7 +147,7 @@ function isCodeMatchEngine(objData) {
     return codeMatch;
 }
 
-compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes)({
+compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB)({
     codeSource: "code1",
     codeVehicle: "code2",
     family: "EN"
