@@ -35,13 +35,14 @@ const comparePromotedCodes = (arr1, arr2) => {
     return Utils.comparePromotedCodes(arr1, arr2);
 }
 
-function compareCodes(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, code, vehicleCode,) {
+// I wonder if I can group getApplicable with its other dependent parameters? (isCodeNegativeGroup, isVehicleCodeNegativeGroup, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes)
+function compareCodes(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, code, vehicleCode,) {
     let applicable = Applicable.Unknown;
     const isCodeNegativeGroup = isCodeNegativeGroupFn(code);
     const isVehicleCodeNegativeGroup = isCodeNegativeGroupFn(vehicleCode);
 
     if (!areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup)) {
-        applicable = getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, code, vehicleCode);
+        applicable = getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes,  code, vehicleCode);
     }
 
     return applicable;
@@ -49,7 +50,6 @@ function compareCodes(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable
 
 let compareCodesCurry = R.curry(compareCodes);
 
-compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes)("code1")("code2")
 
 function areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
     return isCodeNegativeGroup && isVehicleCodeNegativeGroup;
@@ -147,3 +147,5 @@ function isCodeMatchEngine(code, vehicleCode) {
     CodeMatch = (Codes.length > 0 && vehicleCodes.length > 0) ? Utils.compareEngineCodes(vehicleCodes, Codes) : true;
     return CodeMatch;
 }
+
+compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes)("code1")("code2");
