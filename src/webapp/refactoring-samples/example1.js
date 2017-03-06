@@ -2,6 +2,11 @@
  * Created by dmorales on 3/03/2017.
  */
 
+var Applicable = {
+    Unknown: 0,
+    False: 1,
+    True: 2
+}
 
 function compareCodes(code, vehicleCode, family, lexiconGroupMap, isComparePromotedCodes) {
     let applicable;
