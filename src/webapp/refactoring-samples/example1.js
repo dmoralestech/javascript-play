@@ -31,8 +31,8 @@ const isCodeAGroupCode = (code) => {
     return Utils.isGroup(code);
 }
 
-const comparePromotedCodes = (arr1, arr2) => {
-    return Utils.comparePromotedCodes(arr1, arr2);
+const comparePromotedCodes = (objData) => {
+    return Utils.comparePromotedCodes([objData.codeSource], [objData.codeVehicle]);
 }
 
 // I wonder if I can group getApplicable with its other dependent parameters? (isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes)
@@ -128,7 +128,7 @@ function isCodeMatchC(isCodeGroup, isVehicleCodeGroup, objData) {
 
 function isCodeMatchB(comparePromotedCodes, objData) {
     if (isComparePromotedCodes()) {
-        return comparePromotedCodes([objData.codeVehicle], [objData.codeSource]);
+        return comparePromotedCodes(objData);
     } else {
         //both codes are single  codes
         if (objData.codeVehicle === objData.codeSource || (objData.codeSource.startsWith("X") && objData.codeSource.endsWith("0"))) {
