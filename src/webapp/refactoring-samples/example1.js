@@ -55,14 +55,14 @@ function areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
     return isCodeNegativeGroup && isVehicleCodeNegativeGroup;
 }
 
-function getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB, isCodeMatchEngine, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC, objData) {
+function getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB, isCodeMatchEngineFn, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC, objData) {
 
     let applicable = Applicable.Unknown;
     if (areCodeBelongToTheSameFamily(objData)) {
         const isCodeAGroupCode = isCodeAGroupCode(objData.codeSource);
         const isVehicleCodeGroup = isCodeAGroupCode(objData.codeVehicle);
-        const CodeMatch = isCodeMatch(comparePromotedCodes, isCodeAGroupCode, isVehicleCodeGroup, isCodeMatchEngine, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC, objData);
-        if (CodeMatch) {
+        const codeMatch = isCodeMatch(comparePromotedCodes, isCodeMatchEngineFn, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC, isCodeAGroupCode, isVehicleCodeGroup, objData);
+        if (codeMatch) {
             applicable = getApplicableA(isCodeNegativeGroup, isVehicleCodeNegativeGroup);
         } else {
             applicable = getApplicableB(isCodeNegativeGroup, isVehicleCodeNegativeGroup);
@@ -97,9 +97,9 @@ function getApplicableB(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
     return applicable;
 }
 
-function isCodeMatch(comparePromotedCodes, isCodeAGroupCode, isVehicleACodeGroup, isCodeMatchEngine, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC,  objData) {
+function isCodeMatch(comparePromotedCodes, isCodeMatchEngineFn, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC,  isCodeAGroupCode, isVehicleACodeGroup, objData) {
     if (objData.family === FamilyFeatureCodes.Engine) {
-        return isCodeMatchEngine(objData);
+        return isCodeMatchEngineFn(objData);
     } else {
         if (areBothCodesNotAGroupCode(isCodeAGroupCode, isVehicleACodeGroup)) {
             return isCodeMatchB(comparePromotedCodes, objData);
