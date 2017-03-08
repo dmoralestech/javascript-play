@@ -59,8 +59,8 @@ function getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeB
 
     let applicable = Applicable.Unknown;
     if (areCodeBelongToTheSameFamily(objData)) {
-        const isCodeAGroupCode = isCodeAGroupCode(objData.codeSource);
-        const isVehicleCodeGroup = isCodeAGroupCode(objData.codeVehicle);
+        const isCodeAGroupCode = isCodeAGroupCode(objData.codeSource); // returns a boolean
+        const isVehicleCodeGroup = isCodeAGroupCode(objData.codeVehicle); //returns a boolean
         const codeMatch = isCodeMatch(comparePromotedCodes, isCodeMatchEngineFn, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC, isCodeAGroupCode, isVehicleCodeGroup, objData);
         if (codeMatch) {
             applicable = getApplicableA(isCodeNegativeGroup, isVehicleCodeNegativeGroup);
@@ -152,3 +152,21 @@ compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, ge
     codeVehicle: "code2",
     family: "EN"
 });
+
+
+//
+// function compareCodes(validateFn, moreProcessingFn, doStuffOnCodeAFn, doStuffOnCodeBFn, doSomething1Fn, doSomething2Fn, codeA, codeB, param1, param2) {
+//
+//     let result = null;
+//     if (validateFn(codeA, codeB)) {
+//         const isCodeAValid = doStuffOnCodeAFn(codeA);  // returns a boolean
+//         const isCodeBValid = doStuffOnCodeBFn(codeB);  // returns a boolean
+//         const isItAMatch = moreProcessingFn(isCodeAValid, isCodeBValid, codeA, codeB); // returns a boolean
+//         if (isItAMatch) {
+//             result = doSomething1Fn (param1, param2);
+//         } else {
+//             result = doSomething2Fn (param1, param2);
+//         }
+//     }
+//     return result;
+// }
