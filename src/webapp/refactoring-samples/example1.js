@@ -219,3 +219,21 @@ function compareCodesV2(validateFn, moreProcessingFn, doStuffOnCodeAFn, doStuffO
         };
     };
 }
+
+const bimap = ([f, g]) => ([x, y]) => [f(x), g(y)];
+const fst = ([x, _]) => x;
+const snd = ([_, y]) => y;
+const compose = f => g => x => f(g(x));
+const bind = f => g => x => f(g(x), x);
+const cond = pred => then => other => x => pred(x) ? then(x) : other(x);
+const k = x => _ => x;
+
+
+function compareCodesv4(validate, moreProcessing, doStuff, doSomething) {
+    return cond(validate,
+        cond(bind(moreProcessing)(compose(bimap)(doStuff)),
+            fst(doSomething),
+            snd(doSomething)),
+        k(k(null))
+    );
+}
