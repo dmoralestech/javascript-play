@@ -55,13 +55,13 @@ function areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
     return isCodeNegativeGroup && isVehicleCodeNegativeGroup;
 }
 
-function getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB, isCodeMatchEngineFn, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC, objData) {
+function getApplicable(isCodeNegativeGroup, isVehicleCodeNegativeGroup, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB, isCodeMatchEngineFn, areBothCodesNotAGroupCode, isCodeMatchB, isCodeMatchC, objData) {
 
     let applicable = Applicable.Unknown;
     if (areCodeBelongToTheSameFamily(objData)) {
         const isCodeAGroupCode = isCodeAGroupCode(objData.codeSource); // returns a boolean
         const isVehicleCodeGroup = isCodeAGroupCode(objData.codeVehicle); //returns a boolean
-        const codeMatch = isCodeMatch(comparePromotedCodes, isCodeMatchEngineFn, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC, isCodeAGroupCode, isVehicleCodeGroup, objData);
+        const codeMatch = isCodeMatch(comparePromotedCodes, isCodeMatchEngineFn, areBothCodesNotAGroupCode, isCodeMatchB, isCodeMatchC, isCodeAGroupCode, isVehicleCodeGroup, objData);
         if (codeMatch) {
             applicable = getApplicableA(isCodeNegativeGroup, isVehicleCodeNegativeGroup);
         } else {
@@ -97,7 +97,7 @@ function getApplicableB(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
     return applicable;
 }
 
-function isCodeMatch(comparePromotedCodes, isCodeMatchEngineFn, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC,  isCodeAGroupCode, isVehicleACodeGroup, objData) {
+function isCodeMatch(comparePromotedCodes, isCodeMatchEngineFn, areBothCodesNotAGroupCode, isCodeMatchB, isCodeMatchC, isCodeAGroupCode, isVehicleACodeGroup, objData) {
     if (objData.family === FamilyFeatureCodes.Engine) {
         return isCodeMatchEngineFn(objData);
     } else {
@@ -147,14 +147,13 @@ function isCodeMatchEngine(objData) {
     return codeMatch;
 }
 
-compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB, isCodeMatchEngine, areBothCodesNotAGroupCode, isCodeMatchB , isCodeMatchC,)({
+compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB, isCodeMatchEngine, areBothCodesNotAGroupCode, isCodeMatchB, isCodeMatchC,)({
     codeSource: "code1",
     codeVehicle: "code2",
     family: "EN"
 });
 
 
-//
 // function compareCodes(validateFn, moreProcessingFn, doStuffOnCodeAFn, doStuffOnCodeBFn, doSomething1Fn, doSomething2Fn, codeA, codeB, param1, param2) {
 //
 //     let result = null;
@@ -170,3 +169,53 @@ compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, ge
 //     }
 //     return result;
 // }
+
+
+function matchCode(codeA, codeB) {
+    let hashMapData = createMap();
+    const arrayA = createArrayFromCode(codeA, hashMapData);
+    const arrayB = createArrayFromCode(codeB, hashMapData);
+    return (arrayA.length > 0 && arrayB.length > 0) ? compareArrays(arrayA, arrayA) : true;
+}
+
+function compareCodesV0(validateFn, moreProcessingFn, doStuffOnCodeAFn, doStuffOnCodeBFn, doSomething1Fn, doSomething2Fn, codeA, codeB, param1, param2) {
+
+    const fn = (param1, param2) => moreProcessingFn(doStuffOnCodeAFn(codeA), doStuffOnCodeBFn(codeB), codeA, codeB)
+        ? doSomething1Fn(param1, param2)
+        : doSomething2Fn(param1, param2)
+
+    return validateFn(codeA, codeB) ? fn(param1, param2) : null;
+
+}
+
+function compareCodesV1(validateFn, moreProcessingFn, doStuffOnCodeAFn, doStuffOnCodeBFn, doSomething1Fn, doSomething2Fn, codeA, codeB, param1, param2) {
+    return validateFn(codeA, codeB)
+        ? (moreProcessingFn(doStuffOnCodeAFn(codeA), doStuffOnCodeBFn(codeB), codeA, codeB)
+            ? doSomething1Fn
+            : doSomething2Fn
+    )(param1, param2)
+        : null;
+}
+
+
+function compareCodesV1_2(validateFn, moreProcessingFn, [doStuffOnCodeAFn, doStuffOnCodeBFn], [doSomething1Fn, doSomething2Fn], [codeA, codeB], [param1, param2]) {
+    return validateFn([codeA, codeB])
+        ? (moreProcessingFn([doStuffOnCodeAFn(codeA), doStuffOnCodeBFn(codeB)], [codeA, codeB])
+            ? doSomething1Fn
+            : doSomething2Fn
+    )([param1, param2])
+        : null;
+}
+
+
+function compareCodesV2(validateFn, moreProcessingFn, doStuffOnCodeAFn, doStuffOnCodeBFn, doSomething1Fn, doSomething2Fn) {
+    return function (codeA, codeB) {
+        return validateFn(codeA, codeB)
+            ? moreProcessingFn(doStuffOnCodeAFn(codeA), doStuffOnCodeBFn(codeB), codeA, codeB)
+            ? doSomething1Fn
+            : doSomething2Fn
+            : function (param1, param2) {
+            return null;
+        };
+    };
+}
