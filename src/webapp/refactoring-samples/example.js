@@ -236,8 +236,17 @@ const doStuffOnCodeAFn = (codeB) => {
 const doStuffOnCodeBFn = (codeB) => {
     return false;
 };
+
 const moreProcessingFn = (isCodeAValid, isCodeBValid, codeA, codeB) => {
+    console.log();
+    return true;
 };
+
+const moreProcessingFn2 = ([isCodeAValid, isCodeBValid], [codeA, codeB]) => {
+    console.log("moreProcessingFn2", isCodeAValid, codeB)
+    return true;
+};
+
 const doSomething1Fn = (param1, param2) => {
     return true;
 };
@@ -256,9 +265,19 @@ function compareCodesv4(validate, moreProcessing, doStuff, doSomething) {
 
 const curryCompareCodes = compareCodesv4(validateFn, moreProcessingFn,
     [doStuffOnCodeAFn, doStuffOnCodeBFn],
-    [doSomething1Fn, doSomething2Fn])
+    [doSomething1Fn, doSomething2Fn]);
 
 
 //console.log("curry results", curryCompareCodes(['A', 'B'], ['C', 'D']));
 
-console.log(bimap([doStuffOnCodeAFn, doStuffOnCodeBFn]) (['A', 'B']));
+const doStuffBaby = bimap([doStuffOnCodeAFn, doStuffOnCodeBFn]);
+
+const moreProcessingCurried = (doStuffBaby, param) => (code) => {
+    console.log("moreProcessingCurried", param, code);
+    return doStuffBaby(param);
+}
+
+//console.log(moreProcessingFn2(doStuffBaby(['A', 'B']), ['C', 'D']));
+//console.log(doStuffBaby(['A', 'B']));
+
+console.log(moreProcessingCurried(doStuffBaby, ['A', 'B'])(['C', 'D']));
