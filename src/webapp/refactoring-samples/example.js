@@ -2,7 +2,7 @@
  * Created by dmorales on 3/03/2017.
  */
 
-var R = require('ramda');
+// var R = require('ramda');
 
 var Applicable = {
     Unknown: 0,
@@ -48,7 +48,7 @@ function compareCodes(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable
     return applicable;
 }
 
-let compareCodesCurry = R.curry(compareCodes);
+// let compareCodesCurry = R.curry(compareCodes);
 
 
 function areBothNegativeGroup(isCodeNegativeGroup, isVehicleCodeNegativeGroup) {
@@ -147,11 +147,11 @@ function isCodeMatchEngine(objData) {
     return codeMatch;
 }
 
-compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB, isCodeMatchEngine, areBothCodesNotAGroupCode, isCodeMatchB, isCodeMatchC,)({
-    codeSource: "code1",
-    codeVehicle: "code2",
-    family: "EN"
-});
+// compareCodesCurry(isCodeNegativeGroupFn, areBothNegativeGroup, getApplicable, getFamily, areCodeBelongToTheSameFamily, isCodeAGroupCode, comparePromotedCodes, isCodeMatch, getApplicableA, getApplicableB, isCodeMatchEngine, areBothCodesNotAGroupCode, isCodeMatchB, isCodeMatchC,)({
+//     codeSource: "code1",
+//     codeVehicle: "code2",
+//     family: "EN"
+// });
 
 
 // function compareCodes(validateFn, moreProcessingFn, doStuffOnCodeAFn, doStuffOnCodeBFn, doSomething1Fn, doSomething2Fn, codeA, codeB, param1, param2) {
@@ -227,13 +227,38 @@ const compose = f => g => x => f(g(x));
 const bind = f => g => x => f(g(x), x);
 const cond = pred => then => other => x => pred(x) ? then(x) : other(x);
 const k = x => _ => x;
-
+const validateFn = (codeA, codeB) => {
+    return true;
+};
+const doStuffOnCodeAFn = (codeB) => {
+    return true;
+};
+const doStuffOnCodeBFn = (codeB) => {
+    return false;
+};
+const moreProcessingFn = (isCodeAValid, isCodeBValid, codeA, codeB) => {
+};
+const doSomething1Fn = (param1, param2) => {
+    return true;
+};
+const doSomething2Fn = (param1, param2) => {
+    return true
+};
 
 function compareCodesv4(validate, moreProcessing, doStuff, doSomething) {
-    return cond(validate,
-        cond(bind(moreProcessing)(compose(bimap)(doStuff)),
-            fst(doSomething),
-            snd(doSomething)),
-        k(k(null))
-    );
+    return cond(validate)
+    (cond(bind(moreProcessing)(compose(bimap)(doStuff)))
+    (fst(doSomething))
+    (snd(doSomething)))
+    (k(k(null)))
 }
+
+
+const curryCompareCodes = compareCodesv4(validateFn, moreProcessingFn,
+    [doStuffOnCodeAFn, doStuffOnCodeBFn],
+    [doSomething1Fn, doSomething2Fn])
+
+
+//console.log("curry results", curryCompareCodes(['A', 'B'], ['C', 'D']));
+
+console.log(bimap([doStuffOnCodeAFn, doStuffOnCodeBFn]) (['A', 'B']));
