@@ -280,20 +280,43 @@ const moreProcessingCurried = (doStuffBaby, param) => (code) => {
 //console.log(moreProcessingFn2(doStuffBaby(['A', 'B']), ['C', 'D']));
 //console.log(doStuffBaby(['A', 'B']));
 
-console.log(moreProcessingCurried(doStuffBaby, ['A', 'B'])(['C', 'D']));
+//console.log(moreProcessingCurried(doStuffBaby, ['A', 'B'])(['C', 'D']));
 
-const a = () => {console.log('A nice');}
-const b = () => {console.log('B nice');}
+const a = () => {
+    console.log('A nice');
+}
+const b = () => {
+    console.log('B nice');
+}
 
-var listFn = [a , b];
+var listFn = [a, b];
 
 // Calling a list of function sequentially...
-function composeMutuallyExc( ...listFn) {
+function composeMutuallyExc(...listFn) {
     console.log(listFn);
-    listFn.forEach( fn => {
+    listFn.forEach(fn => {
         //console.log("calling", fn);
-        fn();
+        fn;
     })
 }
 
 composeMutuallyExc(a, b);
+
+const aFn = (x) => (y) => {
+    console.log(x + '-' + y);
+}
+
+const bFn = (x) => (y) => {
+    console.log(y + '==' + x);
+}
+
+// Calling a list of function sequentially...
+function composeMutuallyExcCurriedFn(...listFn) {
+    //console.log(listFn);
+    listFn.forEach(fn => {
+        //console.log("calling", fn);
+        fn;
+    })
+}
+
+composeMutuallyExcCurriedFn(aFn('daniel')('sitti'), bFn('darwin')('morales'))
