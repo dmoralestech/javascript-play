@@ -281,3 +281,19 @@ const moreProcessingCurried = (doStuffBaby, param) => (code) => {
 //console.log(doStuffBaby(['A', 'B']));
 
 console.log(moreProcessingCurried(doStuffBaby, ['A', 'B'])(['C', 'D']));
+
+const a = () => {console.log('A nice');}
+const b = () => {console.log('B nice');}
+
+var listFn = [a , b];
+
+// Calling a list of function sequentially...
+function composeMutuallyExc( ...listFn) {
+    console.log(listFn);
+    listFn.forEach( fn => {
+        //console.log("calling", fn);
+        fn();
+    })
+}
+
+composeMutuallyExc(a, b);
