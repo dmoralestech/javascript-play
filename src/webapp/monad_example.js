@@ -32,7 +32,7 @@ var composeDebuggable = function (f, g) {
     };
 };
 
-console.log(composeDebuggable(sine, cube)(3));
+//console.log(composeDebuggable(sine, cube)(3));
 
 var bind = function (f) {
     return function (tuple) {
@@ -52,14 +52,17 @@ var unit = function (x) {
 };
 
 // console.log(f(unit(3)));
-console.log(compose(f, unit)(3));
+//console.log(compose(f, unit)(3));
 
 var round = function (x) {
     return Math.round(x)
 };
 
 var roundDebug = function (x) {
-    return unit(round(x))
+    var temp = unit(round(x));
+    temp[1] = 'round debug was called.';
+    console.log(temp);
+    return temp;
 };
 
 var lift = function (f) {
@@ -72,9 +75,8 @@ var lift2 = function (f) {
     return compose(unit, f)
 };
 
+var g = compose(bind(sine), bind(roundDebug));
 
-var g = compose(bind(roundDebug), bind(sine));
-
-console.log(g(unit(27)) );
+console.log(g(unit(27)));
 
 
