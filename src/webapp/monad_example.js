@@ -47,7 +47,34 @@ var bind = function (f) {
 };
 
 var f = compose(bind(sine), bind(cube));
-var unit = function(x) { return [x, ''] };
+var unit = function (x) {
+    return [x, '']
+};
 
 // console.log(f(unit(3)));
 console.log(compose(f, unit)(3));
+
+var round = function (x) {
+    return Math.round(x)
+};
+
+var roundDebug = function (x) {
+    return unit(round(x))
+};
+
+var lift = function (f) {
+    return function (x) {
+        return unit(f(x));
+    };
+};
+
+var lift2 = function (f) {
+    return compose(unit, f)
+};
+
+
+var g = compose(bind(roundDebug), bind(sine));
+
+console.log(g(unit(27)) );
+
+
