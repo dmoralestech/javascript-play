@@ -8,9 +8,4 @@
 
 > wow this is in italics
 
-* http://www.darwinmoralesphotography.com.au
-
-**Moo** the missing editor for *web developers*
-
-an email [dmorales@infomedia.com.au] link.
-
+**Moo** the missing editor for _web developers_
